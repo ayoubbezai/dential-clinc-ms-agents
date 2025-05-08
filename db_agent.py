@@ -143,6 +143,7 @@ def get_focused_schema(user_question, full_schema, api_url, api_key):
         "Output only the relevant CREATE TABLE statement(s) and a one-line summary for the SQL LLM, e.g.: "
         "'The column diseases is in the patients table as patients.diseases.' "
         "If the information is not present, say: 'No table contains the requested column.'"
+        "'this is the schema check it to return clear question from there that you get it from here {full_schema}'"
     )
     user_prompt = (
         f"User question: {user_question}\n"
@@ -182,11 +183,17 @@ def get_llm_sql(user_question, schema, api_url, api_key):
         "Never change, correct, or remove any part of the user's input value. "
         "If the user's question refers to a name, always check all relevant name columns in all tables (e.g., patient_name in patients, name in users), unless the question clearly specifies a table. Generate a separate SQL query for each possible column/table combination that could answer the question. "
         "If a table has an 'age' column but not a 'birthdate', and the user asks for birthdate, explain that only age is available and generate a query for age. If the user asks for birthdate and only age is available, return the age and explain that birthdate is not in the schema. "
+        "dont genrate attrubiutes by your self Exemple id of patient is called id not patient_id and so on for other data so u need to check schema very well before gerate the sql"
+        "- The database uses **MariaDB version 10.x**, which **does not support 'LIMIT' inside IN/ALL/ANY/SOME subqueries**."
+        "- Always generate SQL queries compatible with **MariaDB 10.x syntax limitations**."
+        "check"
         "Example:\n"
         "SQL: SELECT diseases FROM patients WHERE patient_name = 'Dr. Ottilie Kunde I';\n"
         "SQL: SELECT age FROM patients WHERE patient_name = 'Hardy Howell';\n"
         "If the user asks for birthdate and only age is available, respond: 'The database does not contain a birthdate column, but here is the age.'\n"
         "Only output the SQL queries, nothing else, unless you need to explain the lack of a birthdate column.\n\n"
+        "- Ensure the SQL query does not include unnecessary escape characters like backslashes before the asterisk (`*`)." 
+        "- Use `COUNT(*)` correctly without escaping the asterisk (e.g., `SELECT COUNT(*) FROM patients;`)."
         f"SCHEMA AND SUMMARY:\n{schema}\n"
     )
     messages = [

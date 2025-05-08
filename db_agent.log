@@ -67,3 +67,217 @@
 [2025-05-08 21:12:35] WARNING: Using default values for: DB_USER, DB_PASSWORD
 [2025-05-08 21:12:41] ERROR: DB Error: No result set to fetch from
 [2025-05-08 21:14:59] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:16:02] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:17:27] ERROR: DB Error: 1109 (42S02): Unknown table 'appointments' in field list
+[2025-05-08 21:20:55] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:24:14] ERROR: DB Error: 1109 (42S02): Unknown table 'a' in field list
+[2025-05-08 21:24:44] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:25:13] ERROR: DB Error: 1109 (42S02): Unknown table 'a' in field list
+[2025-05-08 21:26:45] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:29:21] ERROR: DB Error: 1109 (42S02): Unknown table 'patients' in field list
+[2025-05-08 21:30:01] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:30:32] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:30:43] ERROR: DB Error: 1109 (42S02): Unknown table 'a' in field list
+[2025-05-08 21:30:56] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:31:05] ERROR: DB Error: 1109 (42S02): Unknown table 'patients' in field list
+[2025-05-08 21:34:54] ERROR: DB Error: 1109 (42S02): Unknown table 'patients' in field list
+[2025-05-08 21:36:04] ERROR: DB Error: 1109 (42S02): Unknown table 'patients' in field list
+[2025-05-08 21:36:10] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:36:20] ERROR: DB Error: 1109 (42S02): Unknown table 'patients' in field list
+[2025-05-08 21:38:27] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:38:36] ERROR: DB Error: 1109 (42S02): Unknown table 'patients' in field list
+[2025-05-08 21:39:12] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:39:18] ERROR: DB Error: 1109 (42S02): Unknown table 'patients' in field list
+[2025-05-08 21:40:40] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:40:51] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:41:01] WARNING: Skipped invalid SQL (not in schema): SELECT patients.patient_name, SUM(payments.amount) as total_paid
+[2025-05-08 21:43:03] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:43:13] WARNING: Skipped invalid SQL (not in schema): SELECT patients.patient_name, SUM(payments.amount) as total_amount
+[2025-05-08 21:44:29] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:44:39] WARNING: Skipped invalid SQL (not in schema): SELECT p.patient_name, SUM(pay.amount) as total_paid
+[2025-05-08 21:45:50] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:45:53] DEBUG: Generated focused schema:
+To answer the question 'who is the patient that paid the most amount', we need to join the following tables and use their columns:
+
+- payments: id, amount, folder\_id, created\_at, updated\_at
+- folders: id, price, status, patient\_id, created\_at, updated\_at
+- patients: id, user\_id, patient\_name, phone\_number, note, diseases, gender, created\_at, updated\_at, age
+
+The join path would be: payments.folder\_id -> folders.id -> folders.patient\_id -> patients.id
+
+The query would look for the patient who has the highest SUM(payments.amount) for each patient, while joining the necessary tables to get the patient's information.
+[2025-05-08 21:45:55] DEBUG: Generated SQL:
+SQL: SELECT p.patient_name, SUM(pay.amount) as total_paid
+FROM patients p
+JOIN folders f ON f.patient_id = p.id
+JOIN payments pay ON pay.folder_id = f.id
+GROUP BY p.id
+ORDER BY total_paid DESC
+LIMIT 1;
+[2025-05-08 21:45:55] DEBUG: Parsed table To answer the question 'who is the patient that paid the most amount', we need to join the following tables and use their columns with columns: []
+[2025-05-08 21:45:55] DEBUG: Parsed table - payments with columns: ['id', 'amount', 'folder\\_id', 'created\\_at', 'updated\\_at']
+[2025-05-08 21:45:55] DEBUG: Parsed table - folders with columns: ['id', 'price', 'status', 'patient\\_id', 'created\\_at', 'updated\\_at']
+[2025-05-08 21:45:55] DEBUG: Parsed table - patients with columns: ['id', 'user\\_id', 'patient\\_name', 'phone\\_number', 'note', 'diseases', 'gender', 'created\\_at', 'updated\\_at', 'age']
+[2025-05-08 21:45:55] DEBUG: Parsed table The join path would be with columns: ['payments.folder\\_id -> folders.id -> folders.patient\\_id -> patients.id']
+[2025-05-08 21:45:55] DEBUG: Validating SQL against schema map: {"To answer the question 'who is the patient that paid the most amount', we need to join the following tables and use their columns": [], '- payments': ['id', 'amount', 'folder\\_id', 'created\\_at', 'updated\\_at'], '- folders': ['id', 'price', 'status', 'patient\\_id', 'created\\_at', 'updated\\_at'], '- patients': ['id', 'user\\_id', 'patient\\_name', 'phone\\_number', 'note', 'diseases', 'gender', 'created\\_at', 'updated\\_at', 'age'], 'The join path would be': ['payments.folder\\_id -> folders.id -> folders.patient\\_id -> patients.id']}
+[2025-05-08 21:45:55] DEBUG: SQL to validate: SELECT p.patient_name, SUM(pay.amount) as total_paid
+[2025-05-08 21:45:55] WARNING: Invalid table reference: p
+[2025-05-08 21:45:55] WARNING: Skipped invalid SQL (not in schema): SELECT p.patient_name, SUM(pay.amount) as total_paid
+[2025-05-08 21:47:27] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:47:33] DEBUG: Generated focused schema:
+To answer the question 'who is the patient that paid the most amount', we need to join the following tables and use their columns:
+
+- payments: id, amount, folder\_id, created\_at, updated\_at
+- folders: id, price, status, patient\_id, created\_at, updated\_at
+- patients: id, user\_id, patient\_name, phone\_number, note, diseases, gender, created\_at, updated\_at, age
+
+The join path would be: payments.folder\_id -> folders.id -> folders.patient\_id -> patients.id
+
+The query would look for the patient who has the highest SUM(payments.amount) for each patient, while joining the necessary tables to get the patient's information.
+[2025-05-08 21:47:36] DEBUG: Generated SQL:
+SQL: SELECT patients.patient_name, SUM(payments.amount) as total_amount
+FROM payments
+JOIN folders ON payments.folder_id = folders.id
+JOIN patients ON folders.patient_id = patients.id
+GROUP BY patients.id
+ORDER BY total_amount DESC
+LIMIT 1;
+[2025-05-08 21:47:36] DEBUG: Parsed table To answer the question 'who is the patient that paid the most amount', we need to join the following tables and use their columns with columns: []
+[2025-05-08 21:47:36] DEBUG: Parsed table - payments with columns: ['id', 'amount', 'folder\\_id', 'created\\_at', 'updated\\_at']
+[2025-05-08 21:47:36] DEBUG: Parsed table - folders with columns: ['id', 'price', 'status', 'patient\\_id', 'created\\_at', 'updated\\_at']
+[2025-05-08 21:47:36] DEBUG: Parsed table - patients with columns: ['id', 'user\\_id', 'patient\\_name', 'phone\\_number', 'note', 'diseases', 'gender', 'created\\_at', 'updated\\_at', 'age']
+[2025-05-08 21:47:36] DEBUG: Parsed table The join path would be with columns: ['payments.folder\\_id -> folders.id -> folders.patient\\_id -> patients.id']
+[2025-05-08 21:47:36] DEBUG: Validating SQL against schema map: {"To answer the question 'who is the patient that paid the most amount', we need to join the following tables and use their columns": [], '- payments': ['id', 'amount', 'folder\\_id', 'created\\_at', 'updated\\_at'], '- folders': ['id', 'price', 'status', 'patient\\_id', 'created\\_at', 'updated\\_at'], '- patients': ['id', 'user\\_id', 'patient\\_name', 'phone\\_number', 'note', 'diseases', 'gender', 'created\\_at', 'updated\\_at', 'age'], 'The join path would be': ['payments.folder\\_id -> folders.id -> folders.patient\\_id -> patients.id']}
+[2025-05-08 21:47:36] DEBUG: SQL to validate: SELECT patients.patient_name, SUM(payments.amount) as total_amount
+[2025-05-08 21:47:36] WARNING: Invalid table reference: patients
+[2025-05-08 21:47:36] WARNING: Skipped invalid SQL (not in schema): SELECT patients.patient_name, SUM(payments.amount) as total_amount
+[2025-05-08 21:47:48] DEBUG: Generated focused schema:
+To get statistics about the appointments of Steve Kertzmann, we will need to query the `appointments` table and join it with the `folders` and `patients` tables to get the patient name. Then, we will filter the results to only include appointments for Steve Kertzmann. The exact table and column references are as follows:
+
+- appointments: id, date, status, title, folder\_id, created\_at, updated\_at
+- folders: id, folder\_name, price, status, patient\_id, created\_at, updated\_at
+- patients: id, user\_id, patient\_name, phone\_number, note, diseases, gender, created\_at, updated\_at, age
+
+The join path to connect these tables is as follows:
+
+payments.folder\_id -> folders.id
+folders.patient\_id -> patients.id
+
+The final query would look something like this:
+
+SELECT appointments.*, folders.folder\_name, patients.patient\_name
+FROM appointments
+JOIN folders ON appointments.folder\_id = folders.id
+JOIN patients ON folders.patient\_id = patients.id
+WHERE patients.patient\_name = 'Steve Kertzmann';
+
+If the patient name in the patients table is stored as 'Steve Kertzmann' with the exact same capitalization, then the above query will work. However, if the capitalization may vary, you may want to use the LOWER() function on both the column and the search term to ensure a case-insensitive match.
+
+SELECT appointments.*, folders.folder\_name, patients.patient\_name
+FROM appointments
+JOIN folders ON appointments.folder\_id = folders.id
+JOIN patients ON folders.patient\_id = patients.id
+WHERE LOWER(patients.patient\_name) = LOWER('Steve Kertzmann');
+
+This query will return all appointments for Steve Kertzmann, along with the folder name and patient name. You can then use this result set to generate statistics as needed.
+[2025-05-08 21:47:58] DEBUG: Generated SQL:
+SQL: SELECT COUNT(*) AS number\_of\_appointments, MIN(appointments.date) AS earliest\_appointment, MAX(appointments.date) AS latest\_appointment, SUM(CASE WHEN appointments.status = 'confirmed' THEN 1 ELSE 0 END) AS total\_confirmed\_appointments, SUM(CASE WHEN appointments.status = 'cancelled' THEN 1 ELSE 0 END) AS total\_cancelled\_appointments FROM appointments JOIN folders ON appointments.folder_id = folders.id JOIN patients ON folders.patient_id = patients.id WHERE LOWER(patients.patient_name) = LOWER('Steve Kertzmann');
+
+SQL: SELECT SUM(folders.price) AS total\_spent FROM appointments JOIN folders ON appointments.folder_id = folders.id JOIN patients ON folders.patient_id = patients.id WHERE LOWER(patients.patient_name) = LOWER('Steve Kertzmann');
+
+SQL: SELECT MONTH(appointments.date) AS month, COUNT(*) AS number\_of\_appointments FROM appointments JOIN folders ON appointments.folder_id = folders.id JOIN patients ON folders.patient_id = patients.id WHERE LOWER(patients.patient_name) = LOWER('Steve Kertzmann') GROUP BY MONTH(appointments.date);
+
+SQL: SELECT YEAR(appointments.date) AS year, COUNT(*) AS number\_of\_appointments FROM appointments JOIN folders ON appointments.folder_id = folders.id JOIN patients ON folders.patient_id = patients.id WHERE LOWER(patients.patient_name) = LOWER('Steve Kertzmann') GROUP BY YEAR(appointments.date);
+
+SQL: SELECT DAYNAME(appointments.date) AS day\_of\_week, COUNT(*) AS number\_of\_appointments FROM appointments JOIN folders ON appointments.folder_id = folders.id JOIN patients ON folders.patient_id = patients.id WHERE LOWER(patients.patient_name) = LOWER('Ste
+[2025-05-08 21:47:58] DEBUG: Parsed table To get statistics about the appointments of Steve Kertzmann, we will need to query the `appointments` table and join it with the `folders` and `patients` tables to get the patient name. Then, we will filter the results to only include appointments for Steve Kertzmann. The exact table and column references are as follows with columns: []
+[2025-05-08 21:47:58] DEBUG: Parsed table - appointments with columns: ['id', 'date', 'status', 'title', 'folder\\_id', 'created\\_at', 'updated\\_at']
+[2025-05-08 21:47:58] DEBUG: Parsed table - folders with columns: ['id', 'folder\\_name', 'price', 'status', 'patient\\_id', 'created\\_at', 'updated\\_at']
+[2025-05-08 21:47:58] DEBUG: Parsed table - patients with columns: ['id', 'user\\_id', 'patient\\_name', 'phone\\_number', 'note', 'diseases', 'gender', 'created\\_at', 'updated\\_at', 'age']
+[2025-05-08 21:47:58] DEBUG: Parsed table The join path to connect these tables is as follows with columns: []
+[2025-05-08 21:47:58] DEBUG: Parsed table The final query would look something like this with columns: []
+[2025-05-08 21:47:58] DEBUG: Validating SQL against schema map: {'To get statistics about the appointments of Steve Kertzmann, we will need to query the `appointments` table and join it with the `folders` and `patients` tables to get the patient name. Then, we will filter the results to only include appointments for Steve Kertzmann. The exact table and column references are as follows': [], '- appointments': ['id', 'date', 'status', 'title', 'folder\\_id', 'created\\_at', 'updated\\_at'], '- folders': ['id', 'folder\\_name', 'price', 'status', 'patient\\_id', 'created\\_at', 'updated\\_at'], '- patients': ['id', 'user\\_id', 'patient\\_name', 'phone\\_number', 'note', 'diseases', 'gender', 'created\\_at', 'updated\\_at', 'age'], 'The join path to connect these tables is as follows': [], 'The final query would look something like this': []}
+[2025-05-08 21:47:58] DEBUG: SQL to validate: SELECT COUNT(*) AS number_of_appointments, MIN(appointments.date) AS earliest_appointment, MAX(appointments.date) AS latest_appointment, SUM(CASE WHEN appointments.status = 'confirmed' THEN 1 ELSE 0 END) AS total_confirmed_appointments, SUM(CASE WHEN appointments.status = 'cancelled' THEN 1 ELSE 0 END) AS total_cancelled_appointments FROM appointments JOIN folders ON appointments.folder_id = folders.id JOIN patients ON folders.patient_id = patients.id WHERE LOWER(patients.patient_name) = LOWER('Steve Kertzmann');
+[2025-05-08 21:47:58] WARNING: Invalid table reference: appointments
+[2025-05-08 21:47:58] WARNING: Skipped invalid SQL (not in schema): SELECT COUNT(*) AS number_of_appointments, MIN(appointments.date) AS earliest_appointment, MAX(appointments.date) AS latest_appointment, SUM(CASE WHEN appointments.status = 'confirmed' THEN 1 ELSE 0 END) AS total_confirmed_appointments, SUM(CASE WHEN appointments.status = 'cancelled' THEN 1 ELSE 0 END) AS total_cancelled_appointments FROM appointments JOIN folders ON appointments.folder_id = folders.id JOIN patients ON folders.patient_id = patients.id WHERE LOWER(patients.patient_name) = LOWER('Steve Kertzmann');
+[2025-05-08 21:47:58] DEBUG: Validating SQL against schema map: {'To get statistics about the appointments of Steve Kertzmann, we will need to query the `appointments` table and join it with the `folders` and `patients` tables to get the patient name. Then, we will filter the results to only include appointments for Steve Kertzmann. The exact table and column references are as follows': [], '- appointments': ['id', 'date', 'status', 'title', 'folder\\_id', 'created\\_at', 'updated\\_at'], '- folders': ['id', 'folder\\_name', 'price', 'status', 'patient\\_id', 'created\\_at', 'updated\\_at'], '- patients': ['id', 'user\\_id', 'patient\\_name', 'phone\\_number', 'note', 'diseases', 'gender', 'created\\_at', 'updated\\_at', 'age'], 'The join path to connect these tables is as follows': [], 'The final query would look something like this': []}
+[2025-05-08 21:47:58] DEBUG: SQL to validate: SELECT SUM(folders.price) AS total_spent FROM appointments JOIN folders ON appointments.folder_id = folders.id JOIN patients ON folders.patient_id = patients.id WHERE LOWER(patients.patient_name) = LOWER('Steve Kertzmann');
+[2025-05-08 21:47:58] WARNING: Invalid table reference: folders
+[2025-05-08 21:47:58] WARNING: Skipped invalid SQL (not in schema): SELECT SUM(folders.price) AS total_spent FROM appointments JOIN folders ON appointments.folder_id = folders.id JOIN patients ON folders.patient_id = patients.id WHERE LOWER(patients.patient_name) = LOWER('Steve Kertzmann');
+[2025-05-08 21:47:58] DEBUG: Validating SQL against schema map: {'To get statistics about the appointments of Steve Kertzmann, we will need to query the `appointments` table and join it with the `folders` and `patients` tables to get the patient name. Then, we will filter the results to only include appointments for Steve Kertzmann. The exact table and column references are as follows': [], '- appointments': ['id', 'date', 'status', 'title', 'folder\\_id', 'created\\_at', 'updated\\_at'], '- folders': ['id', 'folder\\_name', 'price', 'status', 'patient\\_id', 'created\\_at', 'updated\\_at'], '- patients': ['id', 'user\\_id', 'patient\\_name', 'phone\\_number', 'note', 'diseases', 'gender', 'created\\_at', 'updated\\_at', 'age'], 'The join path to connect these tables is as follows': [], 'The final query would look something like this': []}
+[2025-05-08 21:47:58] DEBUG: SQL to validate: SELECT MONTH(appointments.date) AS month, COUNT(*) AS number_of_appointments FROM appointments JOIN folders ON appointments.folder_id = folders.id JOIN patients ON folders.patient_id = patients.id WHERE LOWER(patients.patient_name) = LOWER('Steve Kertzmann') GROUP BY MONTH(appointments.date);
+[2025-05-08 21:47:58] WARNING: Invalid table reference: appointments
+[2025-05-08 21:47:58] WARNING: Skipped invalid SQL (not in schema): SELECT MONTH(appointments.date) AS month, COUNT(*) AS number_of_appointments FROM appointments JOIN folders ON appointments.folder_id = folders.id JOIN patients ON folders.patient_id = patients.id WHERE LOWER(patients.patient_name) = LOWER('Steve Kertzmann') GROUP BY MONTH(appointments.date);
+[2025-05-08 21:47:58] DEBUG: Validating SQL against schema map: {'To get statistics about the appointments of Steve Kertzmann, we will need to query the `appointments` table and join it with the `folders` and `patients` tables to get the patient name. Then, we will filter the results to only include appointments for Steve Kertzmann. The exact table and column references are as follows': [], '- appointments': ['id', 'date', 'status', 'title', 'folder\\_id', 'created\\_at', 'updated\\_at'], '- folders': ['id', 'folder\\_name', 'price', 'status', 'patient\\_id', 'created\\_at', 'updated\\_at'], '- patients': ['id', 'user\\_id', 'patient\\_name', 'phone\\_number', 'note', 'diseases', 'gender', 'created\\_at', 'updated\\_at', 'age'], 'The join path to connect these tables is as follows': [], 'The final query would look something like this': []}
+[2025-05-08 21:47:58] DEBUG: SQL to validate: SELECT YEAR(appointments.date) AS year, COUNT(*) AS number_of_appointments FROM appointments JOIN folders ON appointments.folder_id = folders.id JOIN patients ON folders.patient_id = patients.id WHERE LOWER(patients.patient_name) = LOWER('Steve Kertzmann') GROUP BY YEAR(appointments.date);
+[2025-05-08 21:47:58] WARNING: Invalid table reference: appointments
+[2025-05-08 21:47:58] WARNING: Skipped invalid SQL (not in schema): SELECT YEAR(appointments.date) AS year, COUNT(*) AS number_of_appointments FROM appointments JOIN folders ON appointments.folder_id = folders.id JOIN patients ON folders.patient_id = patients.id WHERE LOWER(patients.patient_name) = LOWER('Steve Kertzmann') GROUP BY YEAR(appointments.date);
+[2025-05-08 21:47:58] DEBUG: Validating SQL against schema map: {'To get statistics about the appointments of Steve Kertzmann, we will need to query the `appointments` table and join it with the `folders` and `patients` tables to get the patient name. Then, we will filter the results to only include appointments for Steve Kertzmann. The exact table and column references are as follows': [], '- appointments': ['id', 'date', 'status', 'title', 'folder\\_id', 'created\\_at', 'updated\\_at'], '- folders': ['id', 'folder\\_name', 'price', 'status', 'patient\\_id', 'created\\_at', 'updated\\_at'], '- patients': ['id', 'user\\_id', 'patient\\_name', 'phone\\_number', 'note', 'diseases', 'gender', 'created\\_at', 'updated\\_at', 'age'], 'The join path to connect these tables is as follows': [], 'The final query would look something like this': []}
+[2025-05-08 21:47:58] DEBUG: SQL to validate: SELECT DAYNAME(appointments.date) AS day_of_week, COUNT(*) AS number_of_appointments FROM appointments JOIN folders ON appointments.folder_id = folders.id JOIN patients ON folders.patient_id = patients.id WHERE LOWER(patients.patient_name) = LOWER('Ste
+[2025-05-08 21:47:58] WARNING: Invalid table reference: appointments
+[2025-05-08 21:47:58] WARNING: Skipped invalid SQL (not in schema): SELECT DAYNAME(appointments.date) AS day_of_week, COUNT(*) AS number_of_appointments FROM appointments JOIN folders ON appointments.folder_id = folders.id JOIN patients ON folders.patient_id = patients.id WHERE LOWER(patients.patient_name) = LOWER('Ste
+[2025-05-08 21:51:22] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:51:33] WARNING: Skipped invalid SQL (not in schema): SELECT a.id, a.date, a.status, a.title, a.folder_id, a.created_at, a.updated_at,
+[2025-05-08 21:52:02] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:52:17] WARNING: Skipped invalid SQL (not in schema): SELECT a.id AS appointment_id, a.date, a.status, a.title, a.folder_id, a.created_at, a.updated_at,
+[2025-05-08 21:52:17] WARNING: Skipped invalid SQL (not in schema): SELECT COUNT(a.id) AS number_of_appointments, p.patient_name
+[2025-05-08 21:52:17] WARNING: Skipped invalid SQL (not in schema): SELECT COUNT(a.id) AS number_of_scheduled_appointments, p.patient_name
+[2025-05-08 21:52:17] WARNING: Skipped invalid SQL (not in schema): SELECT COUNT(a.id) AS number_of_completed_appointments, p.patient_name
+[2025-05-08 21:52:17] ERROR: DB Error: No result set to fetch from
+[2025-05-08 21:52:32] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:52:54] WARNING: Skipped invalid SQL (not in schema): SELECT COUNT(a.id) AS total_appointments FROM appointments a JOIN folders f ON a.folder_id = f.id JOIN patients p ON f.patient_id = p.id WHERE p.patient_name = 'Steve Kertzmann';
+[2025-05-08 21:52:54] WARNING: Skipped invalid SQL (not in schema): SELECT SUM(a.price) AS total_price FROM appointments a JOIN folders f ON a.folder_id = f.id JOIN patients p ON f.patient_id = p.id WHERE p.patient_name = 'Steve Kertzmann' AND a.status = 'paid';
+[2025-05-08 21:52:54] WARNING: Skipped invalid SQL (not in schema): SELECT COUNT(a.id) AS total_paid_appointments FROM appointments a JOIN folders f ON a.folder_id = f.id JOIN patients p ON f.patient_id = p.id WHERE p.patient_name = 'Steve Kertzmann' AND a.status = 'paid';
+[2025-05-08 21:52:54] WARNING: Skipped invalid SQL (not in schema): SELECT COUNT(a.id) AS total_unpaid_appointments FROM appointments a JOIN folders f ON a.folder_id = f.id JOIN patients p ON f.patient_id = p.id WHERE p.patient_name = 'Steve Kertzmann' AND a.status = 'unpaid';
+[2025-05-08 21:52:54] WARNING: Skipped invalid SQL (not in schema): SELECT AVG(a.price) AS average_price FROM appointments a JOIN folders f ON a.folder_id = f.id JOIN patients p ON f.patient_id = p.id WHERE p.patient_name = 'Steve Kertzmann' AND a.status = 'paid';
+[2025-05-08 21:52:54] WARNING: Skipped invalid SQL (not in schema): SELECT MIN(a.price) AS minimum_price FROM appointments a JOIN folders f ON a.folder_id = f.id JOIN patients p ON f.patient_id = p.id WHERE p.patient_name = 'Steve Kertzmann' AND a.status = 'paid';
+[2025-05-08 21:52:54] WARNING: Skipped invalid SQL (not in schema): SELECT MAX(a.price) AS maximum_price FROM appointments a JOIN folders f ON a.folder_id = f.id JOIN patients p ON f.patient_id = p.id WHERE p.patient_name = 'Steve Kertzmann' AND a.status = 'paid';
+[2025-05-08 21:52:55] ERROR: DB Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2025-05-08 21:57:45] WARNING: Using defaults for: DB_USER, DB_PASSWORD
+[2025-05-08 21:57:45] INFO: Loaded schema from schema.sql
+[2025-05-08 21:57:45] INFO: Database connection established
+[2025-05-08 21:57:56] ERROR: Processing error: 'MySQLCursorDict' object does not support the context manager protocol
+[2025-05-08 21:58:18] ERROR: Processing error: 'MySQLCursorDict' object does not support the context manager protocol
+[2025-05-08 21:59:37] WARNING: Using defaults for: DB_USER, DB_PASSWORD
+[2025-05-08 21:59:37] INFO: Loaded schema from schema.sql
+[2025-05-08 21:59:37] INFO: Database connection established
+[2025-05-08 21:59:43] WARNING: Skipped invalid SQL: SELECT * FROM appointments WHERE user_id = (SELECT id FROM users WHERE email = 'steve.kertzmann@example.com');
+[2025-05-08 22:01:00] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:06:22] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:08:20] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:08:30] ERROR: DB Error: 1235 (42000): This version of MariaDB doesn't yet support 'LIMIT & IN/ALL/ANY/SOME subquery'
+[2025-05-08 22:10:07] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:16:46] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:18:14] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:19:06] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:19:41] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:20:03] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:20:15] ERROR: DB Error: 1109 (42S02): Unknown table 'users' in field list
+[2025-05-08 22:21:52] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:24:13] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:25:15] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:25:54] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:26:30] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:28:24] ERROR: Error: 400 Client Error: Bad Request for url: https://api.together.xyz/v1/chat/completions
+[2025-05-08 22:28:53] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:29:40] ERROR: DB Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\*) FROM appointments' at line 1
+[2025-05-08 22:30:16] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:33:58] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:34:03] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:43:29] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:44:50] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:44:57] ERROR: DB Error: No result set to fetch from
+[2025-05-08 22:45:11] ERROR: DB Error: No result set to fetch from
+[2025-05-08 22:46:36] ERROR: DB Error: No result set to fetch from
+[2025-05-08 22:46:40] ERROR: DB Error: No result set to fetch from
+[2025-05-08 22:46:48] ERROR: DB Error: No result set to fetch from
+[2025-05-08 22:49:40] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:49:54] ERROR: DB Error: 1109 (42S02): Unknown table 'payments' in field list
+[2025-05-08 22:51:05] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:52:36] ERROR: DB Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\*) FROM patients' at line 1
+[2025-05-08 22:54:01] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 22:54:05] ERROR: DB Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\*) FROM patients' at line 1
+[2025-05-08 22:57:12] ERROR: DB Error: 1109 (42S02): Unknown table 'patients' in field list
+[2025-05-08 22:57:45] ERROR: DB Error: 1109 (42S02): Unknown table 'patients' in field list
+[2025-05-08 22:59:15] ERROR: DB Error: 1109 (42S02): Unknown table 'patients' in field list
+[2025-05-08 23:00:02] ERROR: DB Error: 1109 (42S02): Unknown table 'patients' in field list

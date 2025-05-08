@@ -1,3 +1,40 @@
+
+ALTER TABLE `users` ADD CONSTRAINT `fk_users_roles` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`);
+
+ALTER TABLE `folders` ADD CONSTRAINT `fk_folders_patients` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`patient_id`);
+
+ALTER TABLE `events` ADD CONSTRAINT `fk_events_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+ALTER TABLE `patients` ADD CONSTRAINT `fk_patients_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+ALTER TABLE `folder_visits` ADD CONSTRAINT `fk_folder_visits_folders` FOREIGN KEY (`folder_id`) REFERENCES `folders` (`folder_id`);
+
+ALTER TABLE `payments` ADD CONSTRAINT `fk_folder_payments` FOREIGN KEY (`folder_id`) REFERENCES `folders` (`folder_id`);
+
+ALTER TABLE `conversation` ADD CONSTRAINT `fk_conversation_user1` FOREIGN KEY (`user1_id`) REFERENCES `users` (`user_id`);
+
+ALTER TABLE `conversation` ADD CONSTRAINT `fk_conversation_user2` FOREIGN KEY (`user2_id`) REFERENCES `users` (`user_id`);
+
+ALTER TABLE `attachments` ADD CONSTRAINT `fk_attachments_folders` FOREIGN KEY (`folder_id`) REFERENCES `folders` (`folder_id`);
+
+ALTER TABLE `appointments` ADD CONSTRAINT `fk_appointments_folders` FOREIGN KEY (`folder_id`) REFERENCES `folders` (`folder_id`);
+
+ALTER TABLE `messages` ADD CONSTRAINT `fk_messages_conversation` FOREIGN KEY (`conversation_id`) REFERENCES `conversation` (`conversation_id`);
+
+ALTER TABLE `messages` ADD CONSTRAINT `fk_messages_sender` FOREIGN KEY (`sender_id`) REFERENCES `users` (`user_id`);
+
+ALTER TABLE `notes` ADD CONSTRAINT `fk_notes_folders` FOREIGN KEY (`folder_id`) REFERENCES `folders` (`folder_id`);
+
+ALTER TABLE `stocks` ADD CONSTRAINT `fk_stocks_medicine` FOREIGN KEY (`medicine_id`) REFERENCES `medicines` (`medicine_id`) ON DELETE CASCADE;
+
+ALTER TABLE `stocks` ADD CONSTRAINT `fk_stocks_supplier` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`supplier_id`) ON DELETE SET NULL;
+
+ALTER TABLE `stocks` ADD CONSTRAINT `fk_stocks_unit` FOREIGN KEY (`unit_id`) REFERENCES `units` (`unit_id`) ON DELETE CASCADE;
+
+ALTER TABLE `logs_stock` ADD CONSTRAINT `fk_logs_stock` FOREIGN KEY (`stock_id`) REFERENCES `stocks` (`stock_id`) ON DELETE CASCADE;
+
+
+
 CREATE TABLE `users` (
   `id` CHAR(36) PRIMARY KEY NOT NULL,
   `email` VARCHAR(255) NOT NULL,
@@ -89,11 +126,11 @@ CREATE TABLE `appointments` (
 );
 
 CREATE TABLE `payments` (
-  `payment_id` BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `id` BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `amount` DECIMAL(10,2) NOT NULL,
   `date` DATE NOT NULL,
   `folder_id` BIGINT,
-  `type` ENUM ('in', 'out') NOT NULL,
+  `type` ENUM ('income', 'refund') NOT NULL,
   `note` TEXT,
   `created_at` TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP),
   `updated_at` TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP)
@@ -156,37 +193,3 @@ CREATE TABLE `logs_stock` (
   `created_at` TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP),
   `updated_at` TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP)
 );
-
-ALTER TABLE `users` ADD CONSTRAINT `fk_users_roles` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`);
-
-ALTER TABLE `folders` ADD CONSTRAINT `fk_folders_patients` FOREIGN KEY (`patient_id`) REFERENCES `patients` (`patient_id`);
-
-ALTER TABLE `events` ADD CONSTRAINT `fk_events_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
-
-ALTER TABLE `patients` ADD CONSTRAINT `fk_patients_users` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
-
-ALTER TABLE `folder_visits` ADD CONSTRAINT `fk_folder_visits_folders` FOREIGN KEY (`folder_id`) REFERENCES `folders` (`folder_id`);
-
-ALTER TABLE `payments` ADD CONSTRAINT `fk_folder_payments` FOREIGN KEY (`folder_id`) REFERENCES `folders` (`folder_id`);
-
-ALTER TABLE `conversation` ADD CONSTRAINT `fk_conversation_user1` FOREIGN KEY (`user1_id`) REFERENCES `users` (`user_id`);
-
-ALTER TABLE `conversation` ADD CONSTRAINT `fk_conversation_user2` FOREIGN KEY (`user2_id`) REFERENCES `users` (`user_id`);
-
-ALTER TABLE `attachments` ADD CONSTRAINT `fk_attachments_folders` FOREIGN KEY (`folder_id`) REFERENCES `folders` (`folder_id`);
-
-ALTER TABLE `appointments` ADD CONSTRAINT `fk_appointments_folders` FOREIGN KEY (`folder_id`) REFERENCES `folders` (`folder_id`);
-
-ALTER TABLE `messages` ADD CONSTRAINT `fk_messages_conversation` FOREIGN KEY (`conversation_id`) REFERENCES `conversation` (`conversation_id`);
-
-ALTER TABLE `messages` ADD CONSTRAINT `fk_messages_sender` FOREIGN KEY (`sender_id`) REFERENCES `users` (`user_id`);
-
-ALTER TABLE `notes` ADD CONSTRAINT `fk_notes_folders` FOREIGN KEY (`folder_id`) REFERENCES `folders` (`folder_id`);
-
-ALTER TABLE `stocks` ADD CONSTRAINT `fk_stocks_medicine` FOREIGN KEY (`medicine_id`) REFERENCES `medicines` (`medicine_id`) ON DELETE CASCADE;
-
-ALTER TABLE `stocks` ADD CONSTRAINT `fk_stocks_supplier` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`supplier_id`) ON DELETE SET NULL;
-
-ALTER TABLE `stocks` ADD CONSTRAINT `fk_stocks_unit` FOREIGN KEY (`unit_id`) REFERENCES `units` (`unit_id`) ON DELETE CASCADE;
-
-ALTER TABLE `logs_stock` ADD CONSTRAINT `fk_logs_stock` FOREIGN KEY (`stock_id`) REFERENCES `stocks` (`stock_id`) ON DELETE CASCADE;
