@@ -58,3 +58,12 @@
 [2025-05-08 20:44:56] WARNING: Using default values for: DB_USER, DB_PASSWORD
 [2025-05-08 20:46:38] WARNING: Using default values for: DB_USER, DB_PASSWORD
 [2025-05-08 20:49:02] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:09:39] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:10:16] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:10:18] ERROR: DB Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\*) FROM patients' at line 1
+[2025-05-08 21:10:27] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:11:59] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:12:27] ERROR: DB Error: No result set to fetch from
+[2025-05-08 21:12:35] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 21:12:41] ERROR: DB Error: No result set to fetch from
+[2025-05-08 21:14:59] WARNING: Using default values for: DB_USER, DB_PASSWORD

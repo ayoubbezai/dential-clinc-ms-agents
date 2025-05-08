@@ -138,8 +138,11 @@ def load_schema(schema_path="schema.sql"):
 def get_focused_schema(user_question, full_schema, api_url, api_key):
     system_prompt = (
         "You are a MySQL schema expert. Given the full database schema and a user question, "
-        "output only the relevant tables and columns from the schema that are needed to answer the question. "
-        "Be concise and only include what is necessary for the SQL query."
+        "analyze the schema and determine exactly which table(s) and column(s) contain the information needed to answer the question. "
+        "If the requested information does not exist in the schema, say so clearly. "
+        "Output only the relevant CREATE TABLE statement(s) and a one-line summary for the SQL LLM, e.g.: "
+        "'The column diseases is in the patients table as patients.diseases.' "
+        "If the information is not present, say: 'No table contains the requested column.'"
     )
     user_prompt = (
         f"User question: {user_question}\n"
@@ -167,6 +170,8 @@ def get_focused_schema(user_question, full_schema, api_url, api_key):
 def get_llm_sql(user_question, schema, api_url, api_key):
     system_prompt = (
         "You are an expert MySQL assistant. "
+        "Carefully read the provided schema and summary. Only generate SQL for columns and tables that exist and are mentioned in the summary. "
+        "If the summary says the column is only in one table, only generate a query for that table. "
         "Given the following database schema, generate one or more safe, SELECT SQL queries (no modifications) "
         "that answer the user's question. "
         "Before generating SQL, always check the schema to see which tables and columns actually exist for the requested information. "
@@ -179,11 +184,10 @@ def get_llm_sql(user_question, schema, api_url, api_key):
         "If a table has an 'age' column but not a 'birthdate', and the user asks for birthdate, explain that only age is available and generate a query for age. If the user asks for birthdate and only age is available, return the age and explain that birthdate is not in the schema. "
         "Example:\n"
         "SQL: SELECT diseases FROM patients WHERE patient_name = 'Dr. Ottilie Kunde I';\n"
-        "SQL: SELECT diseases FROM users WHERE name = 'Dr. Ottilie Kunde I';\n"
         "SQL: SELECT age FROM patients WHERE patient_name = 'Hardy Howell';\n"
         "If the user asks for birthdate and only age is available, respond: 'The database does not contain a birthdate column, but here is the age.'\n"
         "Only output the SQL queries, nothing else, unless you need to explain the lack of a birthdate column.\n\n"
-        f"SCHEMA:\n{schema}\n"
+        f"SCHEMA AND SUMMARY:\n{schema}\n"
     )
     messages = [
         {"role": "system", "content": system_prompt},
