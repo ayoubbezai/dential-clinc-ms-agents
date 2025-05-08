@@ -135,6 +135,35 @@ def load_schema(schema_path="schema.sql"):
     with open(schema_path, "r", encoding="utf-8") as f:
         return f.read()
 
+def get_focused_schema(user_question, full_schema, api_url, api_key):
+    system_prompt = (
+        "You are a MySQL schema expert. Given the full database schema and a user question, "
+        "output only the relevant tables and columns from the schema that are needed to answer the question. "
+        "Be concise and only include what is necessary for the SQL query."
+    )
+    user_prompt = (
+        f"User question: {user_question}\n"
+        f"Full schema:\n{full_schema}"
+    )
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt}
+    ]
+    payload = {
+        "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+        "messages": messages,
+        "temperature": 0,
+        "max_tokens": 512,
+    }
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
+    response = requests.post(api_url, headers=headers, json=payload, timeout=20)
+    response.raise_for_status()
+    focused_schema = response.json()['choices'][0]['message']['content'].strip()
+    return focused_schema
+
 def get_llm_sql(user_question, schema, api_url, api_key):
     system_prompt = (
         "You are an expert MySQL assistant. "
@@ -232,7 +261,9 @@ def main():
             if not question:
                 continue
             try:
-                sql = get_llm_sql(question, schema, api_url, api_key)
+                full_schema = load_schema("schema.sql")
+                focused_schema = get_focused_schema(question, full_schema, api_url, api_key)
+                sql = get_llm_sql(question, focused_schema, api_url, api_key)
                 sql = sql.replace("\\_", "_")  # Fix for LLM escaping underscores
                 print(f"\nGenerated SQL(s):\n{sql}")
                 queries = [line.replace("SQL:", "").strip() for line in sql.splitlines() if line.strip().startswith("SQL:")]
