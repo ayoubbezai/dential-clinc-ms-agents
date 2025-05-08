@@ -1,0 +1,61 @@
+[2025-05-08 01:35:01] Starting Dental Health AI Assistant
+[2025-05-08 01:35:01] Database connection established
+[2025-05-08 01:35:01] Database connection test successful
+[2025-05-08 01:37:33] ERROR: Database pool creation failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 01:43:20] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 01:44:25] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 01:45:31] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 01:46:51] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 01:48:44] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 01:50:00] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 01:52:56] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 01:54:05] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 01:56:09] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 01:57:43] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 02:02:01] ERROR: Error loading role: 'charmap' codec can't decode byte 0x9d in position 1121: character maps to <undefined>
+[2025-05-08 02:02:01] CRITICAL: System error: 'charmap' codec can't decode byte 0x9d in position 1121: character maps to <undefined>
+[2025-05-08 02:02:48] ERROR: Error loading role: 'charmap' codec can't decode byte 0x9d in position 1121: character maps to <undefined>
+[2025-05-08 02:02:48] CRITICAL: System error: 'charmap' codec can't decode byte 0x9d in position 1121: character maps to <undefined>
+[2025-05-08 02:03:07] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 02:04:28] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 02:07:17] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 02:08:45] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 02:09:07] ERROR: API error: HTTPSConnectionPool(host='api.together.xyz', port=443): Read timed out. (read timeout=20)
+[2025-05-08 02:09:29] ERROR: Error loading role: 'charmap' codec can't decode byte 0x9d in position 1127: character maps to <undefined>
+[2025-05-08 02:09:29] CRITICAL: System error: 'charmap' codec can't decode byte 0x9d in position 1127: character maps to <undefined>
+[2025-05-08 02:09:43] ERROR: Error loading role: 'charmap' codec can't decode byte 0x9d in position 1127: character maps to <undefined>
+[2025-05-08 02:09:43] CRITICAL: System error: 'charmap' codec can't decode byte 0x9d in position 1127: character maps to <undefined>
+[2025-05-08 02:10:08] CRITICAL: Application error: 'charmap' codec can't decode byte 0x9d in position 1127: character maps to <undefined>
+[2025-05-08 02:10:17] ERROR: Error loading role: 'charmap' codec can't decode byte 0x9d in position 1127: character maps to <undefined>
+[2025-05-08 02:10:17] CRITICAL: System error: 'charmap' codec can't decode byte 0x9d in position 1127: character maps to <undefined>
+[2025-05-08 02:10:23] ERROR: Error loading role: 'charmap' codec can't decode byte 0x9d in position 1127: character maps to <undefined>
+[2025-05-08 02:10:23] CRITICAL: System error: 'charmap' codec can't decode byte 0x9d in position 1127: character maps to <undefined>
+[2025-05-08 02:10:32] ERROR: Error loading role: 'charmap' codec can't decode byte 0x9d in position 1127: character maps to <undefined>
+[2025-05-08 02:10:32] CRITICAL: System error: 'charmap' codec can't decode byte 0x9d in position 1127: character maps to <undefined>
+[2025-05-08 02:10:43] ERROR: Error loading role: 'charmap' codec can't decode byte 0x9d in position 1127: character maps to <undefined>
+[2025-05-08 02:10:43] CRITICAL: System error: 'charmap' codec can't decode byte 0x9d in position 1127: character maps to <undefined>
+[2025-05-08 02:11:38] ERROR: Error loading role: 'charmap' codec can't decode byte 0x9d in position 1127: character maps to <undefined>
+[2025-05-08 02:11:38] CRITICAL: System error: 'charmap' codec can't decode byte 0x9d in position 1127: character maps to <undefined>
+[2025-05-08 02:13:09] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 02:16:30] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 02:17:37] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 02:20:34] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 02:29:11] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 02:30:03] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 02:30:52] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 02:31:07] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 02:32:50] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 02:33:39] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 02:37:29] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 02:38:03] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 10:18:46] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 10:21:59] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 10:23:10] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 19:09:50] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 19:09:57] ERROR: API error: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-08 19:10:17] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 19:11:03] ERROR: API error: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-08 19:11:15] ERROR: API error: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-08 19:11:26] ERROR: API error: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-08 19:11:52] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 19:19:45] WARNING: Using default values for: DB_USER, DB_PASSWORD

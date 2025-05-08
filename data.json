@@ -1,0 +1,5 @@
+{
+  "system_role": "You are a helpful dental assistant that answers general dental health questions.",
+  "temperature": 0.7,
+  "max_tokens": 500
+}

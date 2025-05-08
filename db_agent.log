@@ -1,0 +1,60 @@
+[2025-05-08 19:15:59] CRITICAL: System error: Missing required database environment variables
+[2025-05-08 19:16:36] CRITICAL: System error: Missing required database environment variables
+[2025-05-08 19:17:37] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 19:17:37] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 19:17:37] CRITICAL: System error: module 'mysql.connector' has no attribute 'pooling'
+[2025-05-08 19:18:02] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 19:18:17] ERROR: Database query error: 1054 (42S22): Unknown column 'name' in 'where clause'
+[2025-05-08 19:20:52] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 19:20:52] INFO: Connected to MySQL Server version 5.5.5-10.4.32-MariaDB
+[2025-05-08 19:20:52] INFO: Connected to database: dential-clinc-ms
+[2025-05-08 19:21:09] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 19:21:09] ERROR: Database 'dential-clinc-mss' does not exist.
+[2025-05-08 19:21:14] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 19:21:14] INFO: Connected to MySQL Server version 5.5.5-10.4.32-MariaDB
+[2025-05-08 19:21:14] INFO: Connected to database: dential-clinc-ms
+[2025-05-08 19:21:19] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 19:21:21] ERROR: Database connection error: 2003: Can't connect to MySQL server on '127.0.0.1:3307' (10061 No connection could be made because the target machine actively refused it)
+[2025-05-08 19:21:27] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 19:21:27] INFO: Connected to MySQL Server version 5.5.5-10.4.32-MariaDB
+[2025-05-08 19:21:27] INFO: Connected to database: dential-clinc-ms
+[2025-05-08 19:25:24] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 19:26:17] ERROR: Query execution error: 'patient_id'
+[2025-05-08 19:26:58] ERROR: Query execution error: 'patient_id'
+[2025-05-08 19:27:03] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 19:27:05] ERROR: Query execution error: 'patient_id'
+[2025-05-08 19:27:56] ERROR: Query execution error: 'patient_id'
+[2025-05-08 19:28:00] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:01:14] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:01:22] ERROR: Error: 1054 (42S22): Unknown column 'u.user_id' in 'on clause'
+[2025-05-08 20:03:26] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:04:57] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:05:32] ERROR: DB Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\_name = 'Steve Kertzmann'' at line 1
+[2025-05-08 20:07:22] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:08:02] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:08:55] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:09:01] ERROR: DB Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\_id, u.email, u.password\_hash, u.role\_id, u.created\_at, u.updated\_at, u....' at line 1
+[2025-05-08 20:10:34] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:11:42] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:12:30] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:13:33] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:14:45] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:18:28] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:19:09] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:19:31] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:20:23] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:21:30] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:22:11] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:24:41] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:25:22] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:25:37] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:26:41] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:28:44] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:30:52] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:36:46] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:37:53] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:40:54] ERROR: DB Error: Use multi=True when executing multiple statements
+[2025-05-08 20:42:42] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:44:56] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:46:38] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-08 20:49:02] WARNING: Using default values for: DB_USER, DB_PASSWORD
