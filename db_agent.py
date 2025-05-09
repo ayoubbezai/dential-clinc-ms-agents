@@ -135,6 +135,39 @@ def load_schema(schema_path="schema.sql"):
     with open(schema_path, "r", encoding="utf-8") as f:
         return f.read()
 
+def typeOfQuestion(user_question, full_schema, api_url, api_key):
+    system_prompt = (
+        "You are a classifier that determines whether a user query is related to a database or not.\n"
+        "- If the question involves fetching, counting, searching, querying, or accessing data (e.g., patients, appointments, records), classify it as: DATABASE.\n"
+        "- If the question is about general knowledge, advice, or not related to data retrieval, classify it as: GENERAL.\n"
+        "when u asked about name if its famous person so its  GENERAL else it could be data base also could the name dont contain patient or hint like that but still DATABASE "
+        "Only respond with one word: DATABASE or GENERAL."
+    )
+    user_prompt = (
+        f"User question: {user_question}\n"
+        f"Full schema:\n{full_schema}"
+    )
+    messages = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": user_prompt}
+    ]
+    payload = {
+        "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
+        "messages": messages,
+        "temperature": 0,
+        "max_tokens": 20,
+    }
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json"
+    }
+    response = requests.post(api_url, headers=headers, json=payload, timeout=20)
+    response.raise_for_status()
+    classification = response.json()['choices'][0]['message']['content'].strip()
+    return classification
+
+
+
 def get_focused_schema(user_question, full_schema, api_url, api_key):
     system_prompt = (
         "You are a MySQL schema expert. Given the full database schema and a user question, "
@@ -143,7 +176,7 @@ def get_focused_schema(user_question, full_schema, api_url, api_key):
         "Output only the relevant CREATE TABLE statement(s) and a one-line summary for the SQL LLM, e.g.: "
         "'The column diseases is in the patients table as patients.diseases.' "
         "If the information is not present, say: 'No table contains the requested column.'"
-        "'this is the schema check it to return clear question from there that you get it from here {full_schema}'"
+        f"This is the schema. Use it to decide the correct question type: {full_schema}"
     )
     user_prompt = (
         f"User question: {user_question}\n"
@@ -273,9 +306,11 @@ def main():
                 continue
             try:
                 full_schema = load_schema("schema.sql")
+                classification = typeOfQuestion(question, full_schema, api_url, api_key)
+                print(f"\ntype of question is :\n{classification}")
                 focused_schema = get_focused_schema(question, full_schema, api_url, api_key)
                 sql = get_llm_sql(question, focused_schema, api_url, api_key)
-                sql = sql.replace("\\_", "_")  # Fix for LLM escaping underscores
+                sql = sql.replace("\\_", "_");
                 print(f"\nGenerated SQL(s):\n{sql}")
                 queries = [line.replace("SQL:", "").strip() for line in sql.splitlines() if line.strip().startswith("SQL:")]
                 found = False

@@ -281,3 +281,7 @@ SQL: SELECT DAYNAME(appointments.date) AS day\_of\_week, COUNT(*) AS number\_of\
 [2025-05-08 22:57:45] ERROR: DB Error: 1109 (42S02): Unknown table 'patients' in field list
 [2025-05-08 22:59:15] ERROR: DB Error: 1109 (42S02): Unknown table 'patients' in field list
 [2025-05-08 23:00:02] ERROR: DB Error: 1109 (42S02): Unknown table 'patients' in field list
+[2025-05-09 13:44:12] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 13:44:15] ERROR: Error: cannot access local variable 'typeOfQuestion' where it is not associated with a value
+[2025-05-09 13:44:46] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 13:47:12] WARNING: Using default values for: DB_USER, DB_PASSWORD
