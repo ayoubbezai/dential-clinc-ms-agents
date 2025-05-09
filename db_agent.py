@@ -142,6 +142,8 @@ def typeOfQuestion(user_question, full_schema, api_url, api_key):
         "- If the question is about general knowledge, advice, or not related to data retrieval, classify it as: GENERAL.\n"
         "when u asked about name if its famous person so its  GENERAL else it could be data base also could the name dont contain patient or hint like that but still DATABASE "
         "Only respond with one word: DATABASE or GENERAL."
+        "also never return other answer only DATABASE or GENERAL. if dont know return the closest"
+        
     )
     user_prompt = (
         f"User question: {user_question}\n"
