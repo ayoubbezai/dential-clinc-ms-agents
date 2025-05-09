@@ -75,7 +75,7 @@ def main():
                 print(results)
 
                 # Step 3: Generate a final answer from database results
-                answer = generate_answer_from_db_results(question, results, TOGETHER_API_URL, TOGETHER_API_KEY)
+                answer = generate_answer_from_db_results(clean_sql,question, results, TOGETHER_API_URL, TOGETHER_API_KEY)
                 print(f"LLM Answer: {answer}")
 
             except Exception as e:

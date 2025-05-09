@@ -27,7 +27,15 @@ Incorrect examples:
 Multiple queries (WRONG):
 SQL: SELECT name FROM users WHERE name LIKE '%John%';
 SQL: SELECT patient_name FROM patients WHERE patient_name LIKE '%John%';
-
-SCHEMA AND SUMMARY:
+"try to use * when the user dont ask about speacific data"
+"dont add \\ randomly to the sql replace("\\*", "*") this is the wrong :     "sql": "SELECT payments.amount FROM payments INNER JOIN patients ON payments.folder_id = patients.id WHERE patients.patient\\_name = 'Steve Kertzmann';", correct   "sql": "SELECT payments.amount FROM payments INNER JOIN patients ON payments.folder_id = patients.id WHERE patients.patient_name = 'Steve Kertzmann'; not only with name with everything never do \\_ "
+Always include a LIMIT clause in the SQL query to avoid retrieving large datasets, which can be slow. Inform the user that the data shown is partial, and they can request more by specifying it — for example:
+SELECT patient_name FROM patients LIMIT 10;
+If the user wants additional data, they can ask:
+“Show me more” or “Increase the limit.”
+"never genrate a sql without a LIMIT only when u asked about statistic"
+"if u asked about statistic or thing like that dont use the LIMIT so the result will be wrong also dont bring all data that takes a lot of time just use  SUM(amount) COUNT or things like this dont use LIMIT or select speasifyc attribute "
+"when u asked about statistic try to bring a lot of data not select one type this wrong :    "sql": "SELECT diseases FROM patients LIMIT 10;", correct use things like these without a limit SUM(amount) COUNT "
+SCHEMA check the schema and forign keys well somthimes the sql its not short at all :
 {schema}
 """

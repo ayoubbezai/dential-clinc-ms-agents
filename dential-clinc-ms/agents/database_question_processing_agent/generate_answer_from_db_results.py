@@ -3,7 +3,7 @@
 import requests
 from prompts.answer_generation_prompt import ANSWER_GENERATION_SYSTEM_PROMPT  # Import the prompt
 
-def generate_answer_from_db_results(user_question, db_results, api_url, api_key):
+def generate_answer_from_db_results(clean_sql,user_question, db_results, api_url, api_key):
     """
     Given the user's question and the database results, generate a clear, concise answer using the LLM.
 
@@ -16,6 +16,7 @@ def generate_answer_from_db_results(user_question, db_results, api_url, api_key)
 
     # Format the user prompt with the actual user question and database results
     user_prompt = (
+        f"this the sql generated :{clean_sql}"
         f"User question: {user_question}\n"
         f"Database results: {db_results}"
     )

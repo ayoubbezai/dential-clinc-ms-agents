@@ -36,16 +36,18 @@ def ask_question(payload: QuestionInput):
         improved_question = get_focused_schema(question, schema, TOGETHER_API_URL, TOGETHER_API_KEY)
         sql = get_llm_sql(improved_question, schema, TOGETHER_API_URL, TOGETHER_API_KEY)
 
+
+
         if not sql.startswith("SQL:"):
             raise HTTPException(status_code=400, detail="Failed to generate valid SQL")
 
-        clean_sql = sql[4:].strip().replace("\\*", "*")
+        clean_sql = sql[4:].strip().replace("\\*", "*").replace("\\_", "_")
         results = execute_sql(connection, clean_sql)
 
         if not results:
             return {"type": "database", "sql": clean_sql, "results": [], "answer": "No matching data found."}
 
-        answer = generate_answer_from_db_results(question, results, TOGETHER_API_URL, TOGETHER_API_KEY)
+        answer = generate_answer_from_db_results(clean_sql,question, results, TOGETHER_API_URL, TOGETHER_API_KEY)
         return {"type": "database", "sql": clean_sql, "results": results, "answer": answer}
 
     except Exception as e:

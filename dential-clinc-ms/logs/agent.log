@@ -37,3 +37,143 @@
 [2025-05-09 23:37:00] [INFO] Handling database query: gimme number of appointments
 [2025-05-09 23:37:41] [INFO] Classified question: 'gimme info about tooth diceases' as GENERAL
 [2025-05-09 23:37:41] [INFO] Handling general query: gimme info about tooth diceases
+[2025-05-09 23:42:49] [INFO] Classified question: 'gimme info about tooth diceases on details' as GENERAL
+[2025-05-09 23:42:49] [INFO] Handling general query: gimme info about tooth diceases on details
+[2025-05-09 23:43:25] [INFO] Classified question: 'gimme info about the patient Darlene Ebert DVM' as DATABASE
+[2025-05-09 23:43:25] [INFO] Handling database query: gimme info about the patient Darlene Ebert DVM
+[2025-05-09 23:44:17] [INFO] Classified question: 'gimme info about the patient Darlene Ebert DVM' as DATABASE
+[2025-05-09 23:44:17] [INFO] Handling database query: gimme info about the patient Darlene Ebert DVM
+[2025-05-09 23:45:43] [INFO] Classified question: 'gimme info about the patient Darlene Ebert DVM' as DATABASE
+[2025-05-09 23:45:43] [INFO] Handling database query: gimme info about the patient Darlene Ebert DVM
+[2025-05-09 23:46:46] [INFO] Classified question: 'gimme info about the patient Darlene Ebert DVM' as DATABASE
+[2025-05-09 23:46:46] [INFO] Handling database query: gimme info about the patient Darlene Ebert DVM
+[2025-05-09 23:47:30] [INFO] Classified question: 'gimme info about the patient Darlene Ebert DVM' as DATABASE
+[2025-05-09 23:47:30] [INFO] Handling database query: gimme info about the patient Darlene Ebert DVM
+[2025-05-09 23:49:04] [INFO] Classified question: 'gimme payments of  the patient Darlene Ebert DVM' as DATABASE
+[2025-05-09 23:49:04] [INFO] Handling database query: gimme payments of  the patient Darlene Ebert DVM
+[2025-05-09 23:49:47] [INFO] Classified question: 'gimme payments of  the patient Steve Kertzmann' as DATABASE
+[2025-05-09 23:49:47] [INFO] Handling database query: gimme payments of  the patient Steve Kertzmann
+[2025-05-09 23:53:02] [INFO] Classified question: 'gimme payments of  the patient Steve Kertzmann' as DATABASE
+[2025-05-09 23:53:02] [INFO] Handling database query: gimme payments of  the patient Steve Kertzmann
+[2025-05-09 23:53:28] [INFO] Classified question: 'gimme payments details of  the patient Steve Kertzmann' as DATABASE
+[2025-05-09 23:53:28] [INFO] Handling database query: gimme payments details of  the patient Steve Kertzmann
+[2025-05-09 23:54:13] [INFO] Classified question: 'gimme payments and appointments details of  the patient Steve Kertzmann' as DATABASE
+[2025-05-09 23:54:13] [INFO] Handling database query: gimme payments and appointments details of  the patient Steve Kertzmann
+[2025-05-09 23:55:45] [INFO] Classified question: 'gimme payments and appointments details of  the patient Steve Kertzmann' as DATABASE
+[2025-05-09 23:55:45] [INFO] Handling database query: gimme payments and appointments details of  the patient Steve Kertzmann
+[2025-05-09 23:56:30] [INFO] Classified question: 'gimme payments and appointments details of  the patient Steve Kertzmann' as DATABASE
+[2025-05-09 23:56:30] [INFO] Handling database query: gimme payments and appointments details of  the patient Steve Kertzmann
+[2025-05-09 23:57:32] [INFO] Classified question: 'gimme payments and appointments details of  the patient Steve Kertzmann' as DATABASE
+[2025-05-09 23:57:32] [INFO] Handling database query: gimme payments and appointments details of  the patient Steve Kertzmann
+[2025-05-09 23:58:31] [INFO] Classified question: 'gimme payments and appointments details of  the patient Steve Kertzmann' as DATABASE
+[2025-05-09 23:58:31] [INFO] Handling database query: gimme payments and appointments details of  the patient Steve Kertzmann
+[2025-05-09 23:59:30] [INFO] Classified question: 'gimme payments and appointments details of  the patient Steve Kertzmann' as DATABASE
+[2025-05-09 23:59:30] [INFO] Handling database query: gimme payments and appointments details of  the patient Steve Kertzmann
+[2025-05-10 00:00:03] [INFO] Classified question: 'gimme payments and appointments details of  the patient Steve Kertzmann' as DATABASE
+[2025-05-10 00:00:03] [INFO] Handling database query: gimme payments and appointments details of  the patient Steve Kertzmann
+[2025-05-10 00:00:40] [INFO] Classified question: 'gimme payments and appointments details of  the patient Steve Kertzmann' as DATABASE
+[2025-05-10 00:00:40] [INFO] Handling database query: gimme payments and appointments details of  the patient Steve Kertzmann
+[2025-05-10 00:01:21] [INFO] Classified question: 'gimme payments  details of  the patient Steve Kertzmann' as DATABASE
+[2025-05-10 00:01:21] [INFO] Handling database query: gimme payments  details of  the patient Steve Kertzmann
+[2025-05-10 00:01:39] [INFO] Classified question: 'gimme payments   of  the patient Steve Kertzmann' as DATABASE
+[2025-05-10 00:01:40] [INFO] Handling database query: gimme payments   of  the patient Steve Kertzmann
+[2025-05-10 00:02:53] [INFO] Classified question: 'gimme payments   of  the patient Steve Kertzmann' as DATABASE
+[2025-05-10 00:02:53] [INFO] Handling database query: gimme payments   of  the patient Steve Kertzmann
+[2025-05-10 00:03:15] [INFO] Classified question: 'gimme all payments   of  the patient Steve Kertzmann' as DATABASE
+[2025-05-10 00:03:15] [INFO] Handling database query: gimme all payments   of  the patient Steve Kertzmann
+[2025-05-10 00:04:07] [INFO] Classified question: 'gimme the stock of the clinc' as DATABASE
+[2025-05-10 00:04:07] [INFO] Handling database query: gimme the stock of the clinc
+[2025-05-10 00:05:14] [INFO] Classified question: 'gimme the most paying patient' as DATABASE
+[2025-05-10 00:05:14] [INFO] Handling database query: gimme the most paying patient
+[2025-05-10 00:06:23] [INFO] Classified question: 'gimme the most paying patient check the schema and forign keys well' as DATABASE
+[2025-05-10 00:06:23] [INFO] Handling database query: gimme the most paying patient check the schema and forign keys well
+[2025-05-10 00:07:23] [INFO] Classified question: 'gimme the most paying patient check the schema and forign keys well' as DATABASE
+[2025-05-10 00:07:23] [INFO] Handling database query: gimme the most paying patient check the schema and forign keys well
+[2025-05-10 00:08:03] [INFO] Classified question: 'gimme the most paying patient' as DATABASE
+[2025-05-10 00:08:03] [INFO] Handling database query: gimme the most paying patient
+[2025-05-10 00:08:14] [INFO] Classified question: 'gimme the most paying patient check the schema and forign keys well' as DATABASE
+[2025-05-10 00:08:14] [INFO] Handling database query: gimme the most paying patient check the schema and forign keys well
+[2025-05-10 00:08:31] [INFO] Classified question: 'gimme the most paying patient check the schema and forign keys well' as DATABASE
+[2025-05-10 00:08:31] [INFO] Handling database query: gimme the most paying patient check the schema and forign keys well
+[2025-05-10 00:09:02] [INFO] Classified question: 'gimme the most paying patient check the schema and forign keys well somthimes the sql its not short at all' as DATABASE
+[2025-05-10 00:09:02] [INFO] Handling database query: gimme the most paying patient check the schema and forign keys well somthimes the sql its not short at all
+[2025-05-10 00:09:56] [INFO] Classified question: 'gimme the most paying patient check the schema and forign keys well somthimes the sql its not short at all' as DATABASE
+[2025-05-10 00:09:56] [INFO] Handling database query: gimme the most paying patient check the schema and forign keys well somthimes the sql its not short at all
+[2025-05-10 00:10:11] [INFO] Classified question: 'gimme the most paying patient check the schema and forign keys well somthimes the sql its not short at all' as DATABASE
+[2025-05-10 00:10:11] [INFO] Handling database query: gimme the most paying patient check the schema and forign keys well somthimes the sql its not short at all
+[2025-05-10 00:10:52] [INFO] Classified question: 'gimme the oldes patient' as DATABASE
+[2025-05-10 00:10:52] [INFO] Handling database query: gimme the oldes patient
+[2025-05-10 00:11:30] [INFO] Classified question: 'gimme the oldes patient and how old is he' as DATABASE
+[2025-05-10 00:11:30] [INFO] Handling database query: gimme the oldes patient and how old is he
+[2025-05-10 00:12:06] [INFO] Classified question: 'gimme the day with the most paid amount' as DATABASE
+[2025-05-10 00:12:06] [INFO] Handling database query: gimme the day with the most paid amount
+[2025-05-10 00:13:07] [INFO] Classified question: 'gimme the statistic about paymtnts' as DATABASE
+[2025-05-10 00:13:07] [INFO] Handling database query: gimme the statistic about paymtnts
+[2025-05-10 00:13:29] [INFO] Classified question: 'gimme the statistic about paymtnts all possible statistic' as DATABASE
+[2025-05-10 00:13:29] [INFO] Handling database query: gimme the statistic about paymtnts all possible statistic
+[2025-05-10 00:14:16] [INFO] Classified question: 'gimme the statistic about paymtnts all possible statistic all data' as DATABASE
+[2025-05-10 00:14:16] [INFO] Handling database query: gimme the statistic about paymtnts all possible statistic all data
+[2025-05-10 00:15:07] [INFO] Classified question: 'gimme the statistic about paymtnts all possible of the last month' as DATABASE
+[2025-05-10 00:15:07] [INFO] Handling database query: gimme the statistic about paymtnts all possible of the last month
+[2025-05-10 00:16:34] [INFO] Classified question: 'gimme the statistic about paymtnts' as DATABASE
+[2025-05-10 00:16:34] [INFO] Handling database query: gimme the statistic about paymtnts
+[2025-05-10 00:18:57] [INFO] Classified question: 'gimme the statistic about paymtnts' as DATABASE
+[2025-05-10 00:18:57] [INFO] Handling database query: gimme the statistic about paymtnts
+[2025-05-10 00:19:43] [INFO] Classified question: 'gimme the statistic about paymtnts' as DATABASE
+[2025-05-10 00:19:43] [INFO] Handling database query: gimme the statistic about paymtnts
+[2025-05-10 00:20:31] [INFO] Classified question: 'gimme the statistic about paymtnts' as DATABASE
+[2025-05-10 00:20:31] [INFO] Handling database query: gimme the statistic about paymtnts
+[2025-05-10 00:20:55] [INFO] Classified question: 'gimme the statistic about paymtnts' as DATABASE
+[2025-05-10 00:20:55] [INFO] Handling database query: gimme the statistic about paymtnts
+[2025-05-10 00:21:44] [INFO] Classified question: 'gimme the statistic about patients' as DATABASE
+[2025-05-10 00:21:44] [INFO] Handling database query: gimme the statistic about patients
+[2025-05-10 00:22:54] [INFO] Classified question: 'gimme the statistic about patients' as DATABASE
+[2025-05-10 00:22:54] [INFO] Handling database query: gimme the statistic about patients
+[2025-05-10 00:25:18] [INFO] Classified question: 'gimme the statistic about patients' as DATABASE
+[2025-05-10 00:25:18] [INFO] Handling database query: gimme the statistic about patients
+[2025-05-10 00:25:19] [ERROR] API error: 400: Failed to generate valid SQL
+[2025-05-10 00:25:23] [INFO] Classified question: 'gimme the statistic about patients' as DATABASE
+[2025-05-10 00:25:23] [INFO] Handling database query: gimme the statistic about patients
+[2025-05-10 00:25:48] [INFO] Classified question: 'gimme the statistic about patients' as DATABASE
+[2025-05-10 00:25:48] [INFO] Handling database query: gimme the statistic about patients
+[2025-05-10 00:25:50] [ERROR] API error: 400: Failed to generate valid SQL
+[2025-05-10 00:25:52] [INFO] Classified question: 'gimme the statistic about patients' as DATABASE
+[2025-05-10 00:25:52] [INFO] Handling database query: gimme the statistic about patients
+[2025-05-10 00:25:53] [ERROR] API error: 400: Failed to generate valid SQL
+[2025-05-10 00:25:56] [INFO] Classified question: 'gimme the statistic about patients' as DATABASE
+[2025-05-10 00:25:56] [INFO] Handling database query: gimme the statistic about patients
+[2025-05-10 00:25:58] [ERROR] API error: 400: Failed to generate valid SQL
+[2025-05-10 00:26:01] [INFO] Classified question: 'gimme the statistic about patients' as DATABASE
+[2025-05-10 00:26:01] [INFO] Handling database query: gimme the statistic about patients
+[2025-05-10 00:27:19] [INFO] Classified question: 'gimme the statistic about patients' as DATABASE
+[2025-05-10 00:27:19] [INFO] Handling database query: gimme the statistic about patients
+[2025-05-10 00:27:35] [INFO] Classified question: 'gimme the a lot of  statistic about patients' as DATABASE
+[2025-05-10 00:27:35] [INFO] Handling database query: gimme the a lot of  statistic about patients
+[2025-05-10 00:28:59] [INFO] Classified question: 'gimme the a lot of  statistic about patients' as DATABASE
+[2025-05-10 00:28:59] [INFO] Handling database query: gimme the a lot of  statistic about patients
+[2025-05-10 00:29:14] [INFO] Classified question: 'gimme the a lot of  statistic about patients' as DATABASE
+[2025-05-10 00:29:14] [INFO] Handling database query: gimme the a lot of  statistic about patients
+[2025-05-10 00:29:31] [INFO] Classified question: 'gimme the a lot of  statistic about patients' as DATABASE
+[2025-05-10 00:29:31] [INFO] Handling database query: gimme the a lot of  statistic about patients
+[2025-05-10 00:30:39] [INFO] Classified question: 'gimme the a lot of  statistic about patients' as DATABASE
+[2025-05-10 00:30:39] [INFO] Handling database query: gimme the a lot of  statistic about patients
+[2025-05-10 00:31:43] [INFO] Classified question: 'gimme the a lot of  statistic about patients' as DATABASE
+[2025-05-10 00:31:43] [INFO] Handling database query: gimme the a lot of  statistic about patients
+[2025-05-10 00:32:38] [INFO] Classified question: 'gimme the a lot of  statistic about patients gimme most commen diseases' as DATABASE
+[2025-05-10 00:32:38] [INFO] Handling database query: gimme the a lot of  statistic about patients gimme most commen diseases
+[2025-05-10 00:33:37] [INFO] Classified question: 'gimme how to keep my tooth clean and healthy' as GENERAL
+[2025-05-10 00:33:37] [INFO] Handling general query: gimme how to keep my tooth clean and healthy
+[2025-05-10 00:33:50] [INFO] Classified question: 'gimme how to keep my tooth clean and healthy om details plan' as GENERAL
+[2025-05-10 00:33:50] [INFO] Handling general query: gimme how to keep my tooth clean and healthy om details plan
+[2025-05-10 00:34:48] [INFO] Classified question: 'gimme the reason why folder 2 refund that day' as GENERAL
+[2025-05-10 00:34:48] [INFO] Handling general query: gimme the reason why folder 2 refund that day
+[2025-05-10 00:34:58] [INFO] Classified question: 'gimme the reason why folder 2 refund that day data base' as DATABASE
+[2025-05-10 00:34:58] [INFO] Handling database query: gimme the reason why folder 2 refund that day data base
+[2025-05-10 00:35:29] [INFO] Classified question: 'gimme the reason why folder 2 refund that day data base (note of payments)' as DATABASE
+[2025-05-10 00:35:29] [INFO] Handling database query: gimme the reason why folder 2 refund that day data base (note of payments)
+[2025-05-10 00:35:55] [INFO] Classified question: 'gimme the reason why folder with id 2 refund that day data base (note of payments)' as DATABASE
+[2025-05-10 00:35:55] [INFO] Handling database query: gimme the reason why folder with id 2 refund that day data base (note of payments)
+[2025-05-10 00:36:16] [INFO] Classified question: 'gimme the reason why folder with id 1 refund that day data base (note of payments)' as DATABASE
+[2025-05-10 00:36:16] [INFO] Handling database query: gimme the reason why folder with id 1 refund that day data base (note of payments)
+[2025-05-10 00:36:49] [INFO] Classified question: 'hi who are u' as GENERAL
+[2025-05-10 00:36:49] [INFO] Handling general query: hi who are u
