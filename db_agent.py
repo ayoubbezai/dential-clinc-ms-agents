@@ -152,18 +152,51 @@ def typeOfQuestion(user_question, full_schema, api_url, api_key):
 
 def get_focused_schema(user_question, full_schema, api_url, api_key):
     system_prompt = (
-        "You are a MySQL schema expert. Given the full database schema and a user question, "
-        "analyze the schema and determine exactly which table(s) and column(s) contain the information needed to answer the question. "
-        "If the requested information does not exist in the schema, say so clearly. "
-        "Output only the relevant CREATE TABLE statement(s) and a one-line summary for the SQL LLM, e.g.: "
-        "'The column diseases is in the patients table as patients.diseases.' "
-        "If the information is not present, say: 'No table contains the requested column.'"
-        "u will get question could be wrong grammer or in typeing just correct it and write a prompt to other llm that will genrate sql so u need to genrate the improved question to next llm check next schema to get good answer"
-        f"This is the schema. Use it to decide the correct question type: {full_schema}"
+        "You are a **SQL Query Preprocessor** with two key tasks: **question refinement** and **schema validation**. "
+        "Your output will be used by another LLM to generate accurate SQL queries. Follow these steps precisely:\n\n"
+
+        "1. **Correct & Improve the Question** (for SQL generation):\n"
+        "   - Fix grammar/spelling but preserve intent.\n"
+        "   - Replace vague terms with **exact schema column/table names**.\n"
+        "   - Disambiguate phrasing (e.g., 'last year' → 'WHERE date >= DATE_SUB(NOW(), INTERVAL 1 YEAR)').\n\n"
+
+        "2. **Schema Validation & Mapping**:\n"
+        "   - Identify required tables/columns from the schema.\n"
+        "   - If a field is missing, explicitly state it.\n"
+        "   - Map colloquial terms to schema fields (e.g., 'heart disease' → `diagnoses.condition`).\n\n"
+
+        "3. **Output Strict Format (JSON for Parsing)**:\n"
+        "```json\n"
+        "{\n"
+        "   \"refined_question\": \"Clear, schema-aware question for SQL generation\",\n"
+        "   \"schema_reference\": {\n"
+        "       \"tables\": [\"table1\", \"table2\"],\n"
+        "       \"columns\": {\"question_term\": \"schema.column\"}\n"
+        "   },\n"
+        "   \"missing_data\": [\"field1\", \"field2\"]  // If any\n"
+        "}\n"
+        "```\n\n"
+
+        "**Example Input/Output**:\n"
+        "- User Question: \"how many patient got heart disease?\"\n"
+        "- Output:\n"
+        "```json\n"
+        "{\n"
+        "   \"refined_question\": \"Count patients with `diagnoses.condition` containing 'cardiovascular' or 'heart disease' in the `diagnoses` table\",\n"
+        "   \"schema_reference\": {\n"
+        "       \"tables\": [\"patients\", \"diagnoses\"],\n"
+        "       \"columns\": {\"heart disease\": \"diagnoses.condition\"}\n"
+        "   },\n"
+        "   \"missing_data\": []\n"
+        "}\n"
+        "```\n\n"
+
+        f"**Schema for Validation**:\n{full_schema}"
     )
+
     user_prompt = (
-        f"User question: {user_question}\n"
-        f"Full schema:\n{full_schema}"
+        f"Original question: {user_question}\n"
+        "Please correct any language issues and validate against the schema."
     )
     messages = [
         {"role": "system", "content": system_prompt},

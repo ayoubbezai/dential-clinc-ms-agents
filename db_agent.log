@@ -293,3 +293,7 @@ SQL: SELECT DAYNAME(appointments.date) AS day\_of\_week, COUNT(*) AS number\_of\
 [2025-05-09 14:00:42] ERROR: DB Error: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\*) FROM appointments' at line 1
 [2025-05-09 14:08:38] WARNING: Using default values for: DB_USER, DB_PASSWORD
 [2025-05-09 14:13:13] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 14:25:08] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 14:27:49] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 14:30:51] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 14:33:06] ERROR: Error processing question: 429 Client Error: Too Many Requests for url: https://api.together.xyz/v1/chat/completions
