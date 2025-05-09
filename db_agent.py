@@ -7,6 +7,7 @@ import json
 import base64
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import unpad
+import google.generativeai as genai
 
 def is_encrypted_data(value):
     """Check if the value appears to be encrypted data in our expected format"""
@@ -332,6 +333,35 @@ def get_llm_answer(user_question, db_results, api_url, api_key):
     answer = response.json()['choices'][0]['message']['content'].strip()
     return answer
 
+def llmForGeneralQuestions(question, api_key_gemini):
+    try:
+        # Configure the model with the provided API key
+        genai.configure(api_key=api_key_gemini)
+        
+        # Define the base prompt with instructions for the model
+        base_prompt = (
+            "You are a dental expert working on a dental website (MS). All questions you receive are dental-related. "
+            "You must not answer any question that involves database lookups or specific patient information, as you are not connected to a database. "
+            "There are other LLMs better suited for those tasks. "
+            "Keep your answers short and concise unless the dentist specifically asks for a longer explanation. "
+            "Avoid unnecessary elaboration. Only answer questions that can be addressed without external data.\n\n"
+        )
+
+        # Combine the base prompt with the user's question
+        prompt = base_prompt + "\nThe question to answer is: " + question
+
+        # Set up the model and generate a response
+        model = genai.GenerativeModel("models/gemini-1.5-flash")
+        response = model.generate_content(prompt)
+
+        # Print the response from Gemini
+        return response.text
+
+    except Exception as e:
+        # Handle any exceptions that occur during the process
+        print(f"An error occurred: {e}")
+        return None
+
 def main():
     try:
         config = load_config()
@@ -345,6 +375,7 @@ def main():
         api_key = os.getenv("TOGETHER_API_KEY")
         api_url = os.getenv("TOGETHER_API_URL", "https://api.together.xyz/v1/chat/completions")
         schema = load_schema("schema.sql")
+        api_key_gemini = os.getenv("GOOGLE_API_KEY")
 
         while True:
             question = input("\nYour question: ").strip()
@@ -357,8 +388,11 @@ def main():
             try:
                 # Step 1: Classify question
                 question_type = typeOfQuestion(question, schema, api_url, api_key)
+                print(f"question_type :{question_type}")
                 if question_type != "DATABASE":
-                    print("This question doesn't appear to be about database data.")
+                    response = llmForGeneralQuestions(question,api_key_gemini)
+                    print(f"gemini: {response}")
+                    
                     continue
 
                 # Step 2: Generate single optimized SQL query

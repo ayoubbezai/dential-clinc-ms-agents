@@ -361,3 +361,10 @@ SQL: SELECT DAYNAME(appointments.date) AS day\_of\_week, COUNT(*) AS number\_of\
 [2025-05-09 15:56:51] WARNING: Using default values for: DB_USER, DB_PASSWORD
 [2025-05-09 15:57:26] ERROR: Error processing question: 1054 (42S22): Unknown column 'phone_number' in 'field list'
 [2025-05-09 15:57:51] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 18:49:37] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 18:50:30] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 18:50:32] ERROR: Error processing question: name 'llmForGenralQuestions' is not defined
+[2025-05-09 18:51:13] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 18:51:59] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 18:52:05] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 18:54:02] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions

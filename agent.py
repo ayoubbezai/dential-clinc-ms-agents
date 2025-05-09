@@ -1,30 +1,23 @@
-import json  
-import base64
-from Crypto.Cipher import AES
-from Crypto.Util.Padding import unpad
+import os
+import google.generativeai as genai
+from dotenv import load_dotenv
 
-# Your APP_KEY (Laravel's APP_KEY)
-app_key_base64 = "3tyULFf+K8aRX9FF6XU9XvkP18JqR35RR+MYmI1wLcU="
-app_key = base64.b64decode(app_key_base64)
+load_dotenv()
+API_KEY = os.getenv("GOOGLE_API_KEY")
+genai.configure(api_key=API_KEY)
 
-# The encrypted data (your example)
-encoded_data = "eyJpdiI6Ii82a21LcnBROEprc3EyTHFDWFFMZHc9PSIsInZhbHVlIjoiQ2xQQWdabjhPdDR1b3ljUVBDaSs3UT09IiwibWFjIjoiMTA3NzQ4YTNmYzFhMjI4MzEzZDU1ZGE1NmQ2ZmM1ZjFiYTQ2YTFkMzhhYTJkMzUzMTI4MWRmNmNkMmQ1OGVhYiIsInRhZyI6IiJ9"
+base_prompt = (
+    "You are a dental expert working on a dental website (MS). All questions you receive are dental-related. "
+    "You must not answer any question that involves database lookups or specific patient information, as you are not connected to a database. "
+    "There are other LLMs better suited for those tasks. "
+    "Keep your answers short and concise unless the dentist specifically asks for a longer explanation. "
+    "Avoid unnecessary elaboration. Only answer questions that can be addressed without external data.\n\n"
+)
 
-# Step 1: Decode the base64 data
-decoded_data = base64.b64decode(encoded_data)
+user_question = "What causes gingivitis?- with details"
+prompt = base_prompt + user_question
 
-data = json.loads(base64.b64decode(encoded_data).decode('utf-8'))
-print(data)
+model = genai.GenerativeModel("models/gemini-1.5-flash")
+response = model.generate_content(prompt)
 
-iv = base64.b64decode(data['iv'])
-ciphertext = base64.b64decode(data['value'])
-mac = base64.b64decode(data['mac'])
-
-
-cipher = AES.new(app_key, AES.MODE_CBC, iv)
-
-# Decrypt the ciphertext and unpad the result
-decrypted_data = unpad(cipher.decrypt(ciphertext), AES.block_size)
-
-# Step 5: Output the decrypted data
-print("Decrypted data:", decrypted_data.decode('utf-8'))
+print("Gemini Response:\n", response.text)
