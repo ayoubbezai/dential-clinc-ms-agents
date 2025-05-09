@@ -158,6 +158,7 @@ def get_focused_schema(user_question, full_schema, api_url, api_key):
         "Output only the relevant CREATE TABLE statement(s) and a one-line summary for the SQL LLM, e.g.: "
         "'The column diseases is in the patients table as patients.diseases.' "
         "If the information is not present, say: 'No table contains the requested column.'"
+        "u will get question could be wrong grammer or in typeing just correct it and write a prompt to other llm that will genrate sql so u need to genrate the improved question to next llm check next schema to get good answer"
         f"This is the schema. Use it to decide the correct question type: {full_schema}"
     )
     user_prompt = (
@@ -305,7 +306,9 @@ def main():
                     continue
 
                 # Step 2: Generate single optimized SQL query
-                sql = get_llm_sql(question, schema, api_url, api_key)
+                improvedQuestion = get_focused_schema(question, schema, api_url, api_key)
+                print(f"improvedQuestion: {improvedQuestion}")
+                sql = get_llm_sql(improvedQuestion, schema, api_url, api_key)
                 if not sql.startswith("SQL:"):
                     print("Could not generate a valid SQL query for this question.")
                     continue
