@@ -59,3 +59,4 @@
 [2025-05-08 19:11:26] ERROR: API error: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
 [2025-05-08 19:11:52] ERROR: Database init failed: module 'mysql.connector' has no attribute 'pooling'
 [2025-05-08 19:19:45] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 14:47:03] ERROR: API error: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions

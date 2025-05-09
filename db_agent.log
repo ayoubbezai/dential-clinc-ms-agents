@@ -297,3 +297,67 @@ SQL: SELECT DAYNAME(appointments.date) AS day\_of\_week, COUNT(*) AS number\_of\
 [2025-05-09 14:27:49] WARNING: Using default values for: DB_USER, DB_PASSWORD
 [2025-05-09 14:30:51] WARNING: Using default values for: DB_USER, DB_PASSWORD
 [2025-05-09 14:33:06] ERROR: Error processing question: 429 Client Error: Too Many Requests for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 14:36:33] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 14:36:55] ERROR: Error processing question: 1109 (42S02): Unknown table 'f' in field list
+[2025-05-09 14:41:38] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 14:41:44] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 14:41:52] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 14:41:55] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 14:42:01] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 14:42:20] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 14:42:36] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 14:42:41] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 14:43:17] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 14:43:25] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 14:43:35] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 14:43:52] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 14:46:14] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 14:46:20] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 14:48:14] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 14:48:19] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 14:50:17] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 14:50:24] ERROR: Error: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 14:51:10] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 14:51:16] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 14:56:08] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 14:56:15] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 14:56:23] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 15:03:36] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:03:52] ERROR: Error processing question: 1109 (42S02): Unknown table 'f' in field list
+[2025-05-09 15:04:57] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:05:40] ERROR: Error processing question: 1109 (42S02): Unknown table 'f' in field list
+[2025-05-09 15:09:40] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:09:46] ERROR: Error processing question: 1109 (42S02): Unknown table 'folders' in field list
+[2025-05-09 15:12:04] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:12:14] ERROR: Error processing question: 1109 (42S02): Unknown table 'folders' in field list
+[2025-05-09 15:13:07] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:13:16] ERROR: Error processing question: 1109 (42S02): Unknown table 'patients' in field list
+[2025-05-09 15:13:50] ERROR: Error processing question: 1109 (42S02): Unknown table 'patients' in field list
+[2025-05-09 15:14:57] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:15:08] ERROR: Error processing question: 1109 (42S02): Unknown table 'patients' in field list
+[2025-05-09 15:15:24] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:15:36] ERROR: Error processing question: 1109 (42S02): Unknown table 'patients' in field list
+[2025-05-09 15:15:51] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:16:06] ERROR: Error processing question: 1109 (42S02): Unknown table 'patients' in field list
+[2025-05-09 15:16:29] ERROR: Error processing question: 1109 (42S02): Unknown table 'patients' in field list
+[2025-05-09 15:17:44] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:18:48] ERROR: Error processing question: 1109 (42S02): Unknown table 'appointments' in field list
+[2025-05-09 15:19:50] ERROR: Error processing question: 1054 (42S22): Unknown column 'appointments.user_id' in 'on clause'
+[2025-05-09 15:20:14] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:21:32] ERROR: Error processing question: 1109 (42S02): Unknown table 'appointments' in field list
+[2025-05-09 15:22:39] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:22:46] ERROR: Error processing question: 1109 (42S02): Unknown table 'appointments' in field list
+[2025-05-09 15:25:07] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:25:17] ERROR: Error processing question: 429 Client Error: Too Many Requests for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 15:25:45] ERROR: Error processing question: 1054 (42S22): Unknown column 'patient_name' in 'field list'
+[2025-05-09 15:27:28] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:29:22] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:48:04] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:52:28] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:54:44] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:54:50] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:56:04] ERROR: Error processing question: 1054 (42S22): Unknown column 'phone_number' in 'field list'
+[2025-05-09 15:56:25] ERROR: Error processing question: 1054 (42S22): Unknown column 'phone_number' in 'field list'
+[2025-05-09 15:56:51] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 15:57:26] ERROR: Error processing question: 1054 (42S22): Unknown column 'phone_number' in 'field list'
+[2025-05-09 15:57:51] WARNING: Using default values for: DB_USER, DB_PASSWORD

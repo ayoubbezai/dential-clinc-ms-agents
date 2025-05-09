@@ -74,7 +74,7 @@ CREATE TABLE `patients` (
   `id` BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `user_id` BIGINT,
   `patient_name` VARCHAR(255) NOT NULL,
-  `phone_number` VARCHAR(20) NOT NULL,
+  `phone` VARCHAR(20) NOT NULL,
   `note` TEXT NOT NULL,
   `diseases` TEXT NOT NULL,
   `gender` ENUM ('Male', 'Female') NOT NULL,

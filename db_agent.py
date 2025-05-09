@@ -3,6 +3,62 @@ import mysql.connector
 from dotenv import load_dotenv
 import requests
 from datetime import datetime
+import json  
+import base64
+from Crypto.Cipher import AES
+from Crypto.Util.Padding import unpad
+
+def is_encrypted_data(value):
+    """Check if the value appears to be encrypted data in our expected format"""
+    if not isinstance(value, str):
+        return False
+    try:
+        # Our encrypted data should be a base64 encoded JSON string with iv, value, and mac
+        decoded = base64.b64decode(value)
+        data = json.loads(decoded.decode('utf-8'))
+        return all(key in data for key in ['iv', 'value', 'mac'])
+    except:
+        return False
+
+
+def decrypted_data(encoded_data):
+    """Decrypt data that was encrypted with our expected format"""
+    try:
+        app_key_base64 = "3tyULFf+K8aRX9FF6XU9XvkP18JqR35RR+MYmI1wLcU="
+        app_key = base64.b64decode(app_key_base64)
+
+        # Decode the base64 data and parse JSON
+        decoded_data = base64.b64decode(encoded_data)
+        data = json.loads(decoded_data.decode('utf-8'))
+
+        # Extract components
+        iv = base64.b64decode(data['iv'])
+        ciphertext = base64.b64decode(data['value'])
+        mac = base64.b64decode(data['mac'])
+
+        # Decrypt
+        cipher = AES.new(app_key, AES.MODE_CBC, iv)
+        decrypted_data = unpad(cipher.decrypt(ciphertext), AES.block_size)
+        
+        return decrypted_data.decode('utf-8')
+    except Exception as e:
+        log_message(f"Decryption error: {str(e)}", "error")
+        return f"[DECRYPTION FAILED: {str(e)}]"
+
+
+def decrypt_results(results):
+    """Recursively process query results and decrypt any encrypted fields"""
+    if isinstance(results, list):
+        return [decrypt_results(row) for row in results]
+    elif isinstance(results, dict):
+        decrypted = {}
+        for key, value in results.items():
+            if is_encrypted_data(value):
+                decrypted[key] = decrypted_data(value)
+            else:
+                decrypted[key] = value
+        return decrypted
+    return results
 
 # Configure logging
 def log_message(message, level="info"):
@@ -152,51 +208,18 @@ def typeOfQuestion(user_question, full_schema, api_url, api_key):
 
 def get_focused_schema(user_question, full_schema, api_url, api_key):
     system_prompt = (
-        "You are a **SQL Query Preprocessor** with two key tasks: **question refinement** and **schema validation**. "
-        "Your output will be used by another LLM to generate accurate SQL queries. Follow these steps precisely:\n\n"
-
-        "1. **Correct & Improve the Question** (for SQL generation):\n"
-        "   - Fix grammar/spelling but preserve intent.\n"
-        "   - Replace vague terms with **exact schema column/table names**.\n"
-        "   - Disambiguate phrasing (e.g., 'last year' → 'WHERE date >= DATE_SUB(NOW(), INTERVAL 1 YEAR)').\n\n"
-
-        "2. **Schema Validation & Mapping**:\n"
-        "   - Identify required tables/columns from the schema.\n"
-        "   - If a field is missing, explicitly state it.\n"
-        "   - Map colloquial terms to schema fields (e.g., 'heart disease' → `diagnoses.condition`).\n\n"
-
-        "3. **Output Strict Format (JSON for Parsing)**:\n"
-        "```json\n"
-        "{\n"
-        "   \"refined_question\": \"Clear, schema-aware question for SQL generation\",\n"
-        "   \"schema_reference\": {\n"
-        "       \"tables\": [\"table1\", \"table2\"],\n"
-        "       \"columns\": {\"question_term\": \"schema.column\"}\n"
-        "   },\n"
-        "   \"missing_data\": [\"field1\", \"field2\"]  // If any\n"
-        "}\n"
-        "```\n\n"
-
-        "**Example Input/Output**:\n"
-        "- User Question: \"how many patient got heart disease?\"\n"
-        "- Output:\n"
-        "```json\n"
-        "{\n"
-        "   \"refined_question\": \"Count patients with `diagnoses.condition` containing 'cardiovascular' or 'heart disease' in the `diagnoses` table\",\n"
-        "   \"schema_reference\": {\n"
-        "       \"tables\": [\"patients\", \"diagnoses\"],\n"
-        "       \"columns\": {\"heart disease\": \"diagnoses.condition\"}\n"
-        "   },\n"
-        "   \"missing_data\": []\n"
-        "}\n"
-        "```\n\n"
-
-        f"**Schema for Validation**:\n{full_schema}"
+        "You are a MySQL schema expert. Given the full database schema and a user question, "
+        "analyze the schema and determine exactly which table(s) and column(s) contain the information needed to answer the question. "
+        "If the requested information does not exist in the schema, say so clearly. "
+        "Output only the relevant CREATE TABLE statement(s) and a one-line summary for the SQL LLM, e.g.: "
+        "'The column diseases is in the patients table as patients.diseases.' "
+        "If the information is not present, say: 'No table contains the requested column.'"
+        "u will get question could be wrong grammer or in typeing just correct it and write a prompt to other llm that will genrate sql so u need to genrate the improved question to next llm check next schema to get good answer"
+        f"This is the schema. Use it to decide the correct question type: {full_schema}"
     )
-
     user_prompt = (
-        f"Original question: {user_question}\n"
-        "Please correct any language issues and validate against the schema."
+        f"User question: {user_question}\n"
+        f"Full schema:\n{full_schema}"
     )
     messages = [
         {"role": "system", "content": system_prompt},
@@ -279,7 +302,7 @@ def execute_sql(connection, sql):
     cursor.execute(sql)
     results = cursor.fetchall()
     cursor.close()
-    return results
+    return decrypt_results(results)
 
 def get_llm_answer(user_question, db_results, api_url, api_key):
     system_prompt = (
@@ -342,6 +365,8 @@ def main():
                 improvedQuestion = get_focused_schema(question, schema, api_url, api_key)
                 print(f"improvedQuestion: {improvedQuestion}")
                 sql = get_llm_sql(improvedQuestion, schema, api_url, api_key)
+                print(f"sql: {sql}")
+                
                 if not sql.startswith("SQL:"):
                     print("Could not generate a valid SQL query for this question.")
                     continue
@@ -357,6 +382,7 @@ def main():
 
                 # Display formatted results
                 print("\nResults:")
+                print(results)
                 
                 answer = get_llm_answer(question, results, api_url, api_key)
                 print(f"llm answer is {answer}")
