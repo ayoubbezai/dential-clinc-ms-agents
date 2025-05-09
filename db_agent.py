@@ -109,27 +109,7 @@ def execute_query(connection, query_info):
         log_message(f"Query execution error: {str(e)}", "error")
         return "Error executing query."
 
-def format_results(results, query_type):
-    if query_type == "patient_info":
-        formatted = []
-        for patient in results:
-            formatted.append(f"Patient Information:\n"
-                            f"ID: {patient['id']}\n"
-                            f"Name: {patient['patient_name']}\n"
-                            f"Phone: {patient['phone']}\n"
-                            f"Gender: {patient['gender']}\n"
-                            f"Age: {patient['age']}\n"
-                            f"Diseases: {patient['diseases']}\n"
-                            f"Notes: {patient['notes']}\n"
-                            f"Created: {patient['created_at']}\n"
-                            f"Updated: {patient['updated_at']}")
-        return "\n\n".join(formatted)
-    elif query_type == "patient_age":
-        formatted = []
-        for patient in results:
-            formatted.append(f"Name: {patient['patient_name']}\nAge: {patient['age']}")
-        return "\n\n".join(formatted)
-    return str(results)
+
 
 def load_schema(schema_path="schema.sql"):
     with open(schema_path, "r", encoding="utf-8") as f:
@@ -208,47 +188,57 @@ def get_llm_sql(user_question, schema, api_url, api_key):
         "You are an expert MySQL assistant. "
         "Carefully read the provided schema and summary. Only generate SQL for columns and tables that exist and are mentioned in the summary. "
         "If the summary says the column is only in one table, only generate a query for that table. "
-        "Given the following database schema, generate one or more safe, SELECT SQL queries (no modifications) "
-        "that answer the user's question. "
+        "Given the following database schema, generate THE SINGLE MOST RELEVANT safe SELECT SQL query (no modifications) "
+        "that answers the user's question. "
         "Before generating SQL, always check the schema to see which tables and columns actually exist for the requested information. "
-        "If the information could be in more than one table, generate multiple separate SELECT queries (not a UNION), each one valid for a single table/column. "
+        "Choose the most appropriate single query that would answer the question - do not generate multiple alternatives. "
         "Do not generate a query for a column or table that does not exist in the schema. "
-        "Output each SQL query on a separate line, prefixed by 'SQL:'. "
+        "Output format: Exactly one line starting with 'SQL:' followed by the single best query.\n"
         "When generating SQL, always use the exact name or value provided by the user in the WHERE clause, even if it looks unusual, contains titles, or is not a typical name. "
         "Never change, correct, or remove any part of the user's input value. "
-        "If the user's question refers to a name, always check all relevant name columns in all tables (e.g., patient_name in patients, name in users), unless the question clearly specifies a table. Generate a separate SQL query for each possible column/table combination that could answer the question. "
-        "If a table has an 'age' column but not a 'birthdate', and the user asks for birthdate, explain that only age is available and generate a query for age. If the user asks for birthdate and only age is available, return the age and explain that birthdate is not in the schema. "
-        "dont genrate attrubiutes by your self Exemple id of patient is called id not patient_id and so on for other data so u need to check schema very well before gerate the sql"
-        "- The database uses **MariaDB version 10.x**, which **does not support 'LIMIT' inside IN/ALL/ANY/SOME subqueries**."
-        "- Always generate SQL queries compatible with **MariaDB 10.x syntax limitations**."
-        "check"
-        "Example:\n"
-        "SQL: SELECT diseases FROM patients WHERE patient_name = 'Dr. Ottilie Kunde I';\n"
-        "SQL: SELECT age FROM patients WHERE patient_name = 'Hardy Howell';\n"
-        "If the user asks for birthdate and only age is available, respond: 'The database does not contain a birthdate column, but here is the age.'\n"
-        "Only output the SQL queries, nothing else, unless you need to explain the lack of a birthdate column.\n\n"
-        "- Ensure the SQL query does not include unnecessary escape characters like backslashes before the asterisk (`*`)." 
-        "- Use `COUNT(*)` correctly without escaping the asterisk (e.g., `SELECT COUNT(*) FROM patients;`)."
+        "If the user's question refers to a name, choose the most likely table containing that name (e.g., prefer patient_name in patients over name in users for medical queries). "
+        "If a table has an 'age' column but not a 'birthdate', and the user asks for birthdate, return a query for age with explanation. "
+        "Never generate attributes yourself (e.g., use 'id' not 'patient_id' if that's what's in the schema).\n"
+        "MariaDB 10.x limitations:\n"
+        "- No 'LIMIT' inside IN/ALL/ANY/SOME subqueries\n"
+        "- Ensure queries are compatible with MariaDB 10.x syntax\n\n"
+        "Correct examples:\n"
+        "SQL: SELECT diseases FROM patients WHERE patient_name LIKE '%John%';\n"
+        "SQL: SELECT age FROM patients WHERE patient_name = 'Mary Smith';\n\n"
+        "Incorrect examples:\n"
+        "Multiple queries (WRONG):\n"
+        "SQL: SELECT name FROM users WHERE name LIKE '%John%';\n"
+        "SQL: SELECT patient_name FROM patients WHERE patient_name LIKE '%John%';\n\n"
         f"SCHEMA AND SUMMARY:\n{schema}\n"
     )
+    
     messages = [
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": user_question}
     ]
+    
     payload = {
         "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
         "messages": messages,
         "temperature": 0,
         "max_tokens": 512,
     }
+    
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json"
     }
+    
     response = requests.post(api_url, headers=headers, json=payload, timeout=20)
     response.raise_for_status()
-    sql = response.json()['choices'][0]['message']['content'].strip()
-    return sql
+    sql_response = response.json()['choices'][0]['message']['content'].strip()
+    
+    # Force single query output - take the first one if multiple are generated
+    for line in sql_response.splitlines():
+        if line.strip().startswith("SQL:"):
+            return line.strip()
+    
+    return sql_response  # fallback
 
 def execute_sql(connection, sql):
     cursor = connection.cursor(dictionary=True)
@@ -274,7 +264,7 @@ def get_llm_answer(user_question, db_results, api_url, api_key):
         "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",
         "messages": messages,
         "temperature": 0,
-        "max_tokens": 256,
+        "max_tokens": 512,
     }
     headers = {
         "Authorization": f"Bearer {api_key}",
@@ -291,60 +281,57 @@ def main():
         connection = get_db_connection(config)
         if not connection:
             return
-        print("\nDatabase Query Assistant (patients table)")
-        print("You can ask questions like:")
-        print("- 'Give me info about Ahmed'")
-        print("- 'What is the age of Ahmed?'")
-        print("- 'exit' to quit")
+            
+        print("\nDatabase Query Assistant")
+        print("Type your question or 'exit' to quit\n")
+        
         api_key = os.getenv("TOGETHER_API_KEY")
         api_url = os.getenv("TOGETHER_API_URL", "https://api.together.xyz/v1/chat/completions")
         schema = load_schema("schema.sql")
+
         while True:
             question = input("\nYour question: ").strip()
-            if question.lower() == "exit":
-                print("Goodbye.")
+            if question.lower() in ('exit', 'quit'):
+                print("Goodbye!")
                 break
             if not question:
                 continue
+
             try:
-                full_schema = load_schema("schema.sql")
-                classification = typeOfQuestion(question, full_schema, api_url, api_key)
-                print(f"\ntype of question is :\n{classification}")
-                focused_schema = get_focused_schema(question, full_schema, api_url, api_key)
-                sql = get_llm_sql(question, focused_schema, api_url, api_key)
-                sql = sql.replace("\\_", "_");
-                print(f"\nGenerated SQL(s):\n{sql}")
-                queries = [line.replace("SQL:", "").strip() for line in sql.splitlines() if line.strip().startswith("SQL:")]
-                found = False
-                for q in queries:
-                    try:
-                        results = execute_sql(connection, q)
-                        if results and any(any(v not in (None, '', 0) for v in row.values()) for row in results):
-                            print("\nResults:")
-                            for row in results:
-                                print(row)
-                            # Pass to LLM for a natural language answer
-                            answer = get_llm_answer(question, results, api_url, api_key)
-                            print("\nLLM Answer:")
-                            print(answer)
-                            found = True
-                            break
-                    except mysql.connector.Error as db_err:
-                        if getattr(db_err, 'errno', None) in (1054, 1146):
-                            continue  # Try next query
-                        else:
-                            log_message(f"DB Error: {str(db_err)}", "error")
-                            print("A database error occurred. Check logs for details.")
-                            found = True
-                            break
-                if not found:
-                    print("I could not find this information in the database.")
+                # Step 1: Classify question
+                question_type = typeOfQuestion(question, schema, api_url, api_key)
+                if question_type != "DATABASE":
+                    print("This question doesn't appear to be about database data.")
+                    continue
+
+                # Step 2: Generate single optimized SQL query
+                sql = get_llm_sql(question, schema, api_url, api_key)
+                if not sql.startswith("SQL:"):
+                    print("Could not generate a valid SQL query for this question.")
+                    continue
+
+                # Clean and execute the single query
+                clean_sql = sql[4:].strip().replace("\\*", "*")
+                print(f"\nExecuting: {clean_sql}")
+                
+                results = execute_sql(connection, clean_sql)
+                if not results:
+                    print("No matching data found.")
+                    continue
+
+                # Display formatted results
+                print("\nResults:")
+                
+                answer = get_llm_answer(question, results, api_url, api_key)
+                print(f"llm answer is {answer}")
+
             except Exception as e:
-                log_message(f"Error: {str(e)}", "error")
-                print("Error occurred. Check logs for details.")
+                log_message(f"Error processing question: {str(e)}", "error")
+                print("An error occurred. Please try a different question.")
+
     except Exception as e:
         log_message(f"System error: {str(e)}", "critical")
-        print("System error occurred. Check logs for details.")
+        print("A system error occurred. Check logs for details.")
     finally:
         if connection:
             connection.close()
