@@ -1,0 +1,33 @@
+[2025-05-09 21:48:14] [CRITICAL] System error: load_schema() takes 0 positional arguments but 1 was given
+[2025-05-09 21:50:36] [CRITICAL] System error: load_schema() takes 0 positional arguments but 1 was given
+[2025-05-09 21:59:38] [CRITICAL] System error: load_schema() takes 0 positional arguments but 1 was given
+[2025-05-09 22:01:59] [CRITICAL] System error: load_schema() takes 0 positional arguments but 1 was given
+[2025-05-09 22:02:31] [CRITICAL] System error: load_schema() takes 0 positional arguments but 1 was given
+[2025-05-09 22:02:50] [CRITICAL] System error: load_schema() takes 0 positional arguments but 1 was given
+[2025-05-09 22:03:35] [CRITICAL] System error: load_schema() takes 0 positional arguments but 1 was given
+[2025-05-09 22:08:24] [CRITICAL] System error: load_schema() takes 0 positional arguments but 1 was given
+[2025-05-09 22:11:00] [CRITICAL] System error: load_schema() takes 0 positional arguments but 1 was given
+[2025-05-09 22:12:30] [CRITICAL] System error: load_schema() takes 0 positional arguments but 1 was given
+[2025-05-09 22:13:11] [CRITICAL] System error: load_schema() takes 0 positional arguments but 1 was given
+[2025-05-09 22:14:08] [ERROR] Error processing question: classify_and_handle_question() takes 1 positional argument but 4 were given
+[2025-05-09 22:14:13] [ERROR] Error processing question: classify_and_handle_question() takes 1 positional argument but 4 were given
+[2025-05-09 22:14:14] [ERROR] Error processing question: classify_and_handle_question() takes 1 positional argument but 4 were given
+[2025-05-09 22:14:15] [ERROR] Error processing question: classify_and_handle_question() takes 1 positional argument but 4 were given
+[2025-05-09 22:15:14] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-09 22:15:14] [INFO] Handling general query: hi
+[2025-05-09 22:17:58] [INFO] Classified question: 'ji' as GENERAL
+[2025-05-09 22:17:58] [INFO] Handling general query: ji
+[2025-05-09 22:18:04] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-09 22:18:04] [INFO] Handling general query: hi
+[2025-05-09 22:18:55] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-09 22:18:55] [INFO] Handling general query: hi
+[2025-05-09 22:19:07] [INFO] Classified question: 'gimme total number of patietns' as DATABASE
+[2025-05-09 22:19:07] [INFO] Handling database query: gimme total number of patietns
+[2025-05-09 22:20:17] [INFO] Classified question: 'gimme names of patients that have an account' as DATABASE
+[2025-05-09 22:20:17] [INFO] Handling database query: gimme names of patients that have an account
+[2025-05-09 22:20:55] [INFO] Classified question: 'gimme appointments of  Steve Kertzmann' as DATABASE
+[2025-05-09 22:20:55] [INFO] Handling database query: gimme appointments of  Steve Kertzmann
+[2025-05-09 22:21:22] [INFO] Classified question: 'gimme info about  Steve Kertzmann' as GENERAL
+[2025-05-09 22:21:22] [INFO] Handling general query: gimme info about  Steve Kertzmann
+[2025-05-09 22:21:41] [INFO] Classified question: 'gimme info about the patient   Steve Kertzmann' as DATABASE
+[2025-05-09 22:21:41] [INFO] Handling database query: gimme info about the patient   Steve Kertzmann
