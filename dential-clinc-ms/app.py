@@ -31,7 +31,7 @@ def ask_question(payload: QuestionInput):
         question_type = typeOfQuestion(question)
         if question_type != "DATABASE":
             response = llmForGeneralQuestions(question, GEMINI_API_KEY)
-            return {"type": "general", "response": response}
+            return {"type": "general", "answer": response}
 
         improved_question = get_focused_schema(question, schema, TOGETHER_API_URL, TOGETHER_API_KEY)
         sql = get_llm_sql(improved_question, schema,GEMINI_API_KEY)
