@@ -177,3 +177,15 @@
 [2025-05-10 00:36:16] [INFO] Handling database query: gimme the reason why folder with id 1 refund that day data base (note of payments)
 [2025-05-10 00:36:49] [INFO] Classified question: 'hi who are u' as GENERAL
 [2025-05-10 00:36:49] [INFO] Handling general query: hi who are u
+[2025-05-10 01:06:54] [INFO] Classified question: 'hi who are u' as GENERAL
+[2025-05-10 01:06:54] [INFO] Handling general query: hi who are u
+[2025-05-10 01:07:09] [INFO] Classified question: 'gimme statistic of patients' as DATABASE
+[2025-05-10 01:07:09] [INFO] Handling database query: gimme statistic of patients
+[2025-05-10 01:07:42] [INFO] Classified question: 'gimme statistic of patients a lot of them' as DATABASE
+[2025-05-10 01:07:42] [INFO] Handling database query: gimme statistic of patients a lot of them
+[2025-05-10 01:08:11] [INFO] Classified question: 'gimme the most paied patient' as DATABASE
+[2025-05-10 01:08:11] [INFO] Handling database query: gimme the most paied patient
+[2025-05-10 01:08:37] [INFO] Classified question: 'gimme the most paied patient and how much he pay' as DATABASE
+[2025-05-10 01:08:37] [INFO] Handling database query: gimme the most paied patient and how much he pay
+[2025-05-10 01:09:01] [INFO] Classified question: 'gimme the most paied patient and how much he pay and his name' as DATABASE
+[2025-05-10 01:09:01] [INFO] Handling database query: gimme the most paied patient and how much he pay and his name

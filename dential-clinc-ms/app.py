@@ -34,7 +34,7 @@ def ask_question(payload: QuestionInput):
             return {"type": "general", "response": response}
 
         improved_question = get_focused_schema(question, schema, TOGETHER_API_URL, TOGETHER_API_KEY)
-        sql = get_llm_sql(improved_question, schema, TOGETHER_API_URL, TOGETHER_API_KEY)
+        sql = get_llm_sql(improved_question, schema,GEMINI_API_KEY)
 
 
 
