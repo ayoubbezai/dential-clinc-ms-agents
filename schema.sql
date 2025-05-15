@@ -128,7 +128,6 @@ CREATE TABLE `appointments` (
 CREATE TABLE `payments` (
   `id` BIGINT PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `amount` DECIMAL(10,2) NOT NULL,
-  `date` DATE NOT NULL,
   `folder_id` BIGINT,
   `type` ENUM ('income', 'refund') NOT NULL,
   `note` TEXT,

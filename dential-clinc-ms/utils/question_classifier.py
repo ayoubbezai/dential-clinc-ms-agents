@@ -13,7 +13,7 @@ def typeOfQuestion(user_question, full_schema, api_url, api_key):
     ]
 
     payload = {
-        "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",  # You can adjust the model here as needed
+        "model":"mistralai/Mixtral-8x7B-Instruct-v0.1",
         "messages": messages,
         "temperature": 0,
         "max_tokens": 20,

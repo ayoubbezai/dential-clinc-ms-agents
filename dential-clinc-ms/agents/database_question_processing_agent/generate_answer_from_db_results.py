@@ -1,7 +1,7 @@
 # agents/generate_answer_from_db_results.py
 
 import requests
-from prompts.answer_generation_prompt import ANSWER_GENERATION_SYSTEM_PROMPT  # Import the prompt
+from prompts.answer_generation_prompt import ANSWER_GENERATION_SYSTEM_PROMPT  
 
 def generate_answer_from_db_results(clean_sql,user_question, db_results, api_url, api_key):
     """

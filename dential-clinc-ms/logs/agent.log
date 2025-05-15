@@ -237,3 +237,293 @@
 [2025-05-10 02:07:39] [INFO] Handling database query: gimme information about the patient Dalton Streich V
 [2025-05-10 02:08:09] [INFO] Classified question: 'gimme information about the patient  Dalton Streich V' as DATABASE
 [2025-05-10 02:08:09] [INFO] Handling database query: gimme information about the patient  Dalton Streich V
+[2025-05-15 00:16:13] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 00:16:13] [INFO] Handling general query: hi
+[2025-05-15 00:18:11] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 00:18:11] [INFO] Handling general query: hi
+[2025-05-15 00:19:01] [INFO] Classified question: 'hi' as DATABASE
+[2025-05-15 00:19:01] [INFO] Handling database query: hi
+[2025-05-15 00:19:05] [ERROR] Error processing question: generate_sql() takes 3 positional arguments but 4 were given
+[2025-05-15 00:19:09] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 00:19:09] [INFO] Handling general query: hi
+[2025-05-15 00:19:14] [INFO] Classified question: 'hi' as DATABASE
+[2025-05-15 00:19:14] [INFO] Handling database query: hi
+[2025-05-15 00:19:19] [ERROR] Error processing question: generate_sql() takes 3 positional arguments but 4 were given
+[2025-05-15 00:20:17] [INFO] Classified question: 'hi' as <think>
+Okay, so I need to figure out whether the user's query is related to a database
+[2025-05-15 00:20:17] [INFO] Handling general query: hi
+[2025-05-15 00:20:32] [INFO] Classified question: 'hi' as <think>
+Okay, so I need to figure out whether the user's query is related to a database
+[2025-05-15 00:20:32] [INFO] Handling general query: hi
+[2025-05-15 00:21:31] [INFO] Classified question: 'hi' as <think>
+Okay, so I need to figure out whether the user's query is related to a database
+[2025-05-15 00:21:31] [INFO] Handling general query: hi
+[2025-05-15 00:23:00] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 00:23:00] [INFO] Handling general query: hi
+[2025-05-15 00:23:24] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 00:23:24] [INFO] Handling general query: hi
+[2025-05-15 00:23:42] [INFO] Classified question: 'hello' as GENERAL
+[2025-05-15 00:23:42] [INFO] Handling general query: hello
+[2025-05-15 00:23:54] [INFO] Classified question: 'i need info about total patients' as DATABASE
+[2025-05-15 00:23:54] [INFO] Handling database query: i need info about total patients
+[2025-05-15 00:23:56] [ERROR] Error processing question: generate_sql() takes 3 positional arguments but 4 were given
+[2025-05-15 00:26:47] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 00:26:47] [INFO] Handling general query: hi
+[2025-05-15 00:26:59] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 00:26:59] [INFO] Handling general query: hi
+[2025-05-15 02:20:01] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 02:20:01] [INFO] Handling general query: hi
+[2025-05-15 02:21:32] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 02:21:32] [INFO] Handling general query: hi
+[2025-05-15 02:22:13] [INFO] Classified question: 'What are the early signs of gum disease?' as GENERAL
+[2025-05-15 02:22:13] [INFO] Handling general query: What are the early signs of gum disease?
+[2025-05-15 02:24:13] [INFO] Classified question: 'import requests' as GENERAL
+[2025-05-15 02:24:13] [INFO] Handling general query: import requests
+[2025-05-15 02:27:55] [INFO] Classified question: 'What are the early signs of gum disease?' as GENERAL
+[2025-05-15 02:27:55] [INFO] Handling general query: What are the early signs of gum disease?
+[2025-05-15 02:28:07] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 02:28:07] [INFO] Handling general query: hi
+[2025-05-15 02:28:12] [INFO] Classified question: 'def scrape_wikipedia_rest(query):  # Keeping original name but using web scraping' as GENERAL
+[2025-05-15 02:28:12] [INFO] Handling general query: def scrape_wikipedia_rest(query):  # Keeping original name but using web scraping
+[2025-05-15 02:29:25] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 02:29:25] [INFO] Handling general query: hi
+[2025-05-15 02:31:41] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 02:31:41] [INFO] Handling general query: hi
+[2025-05-15 02:33:13] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 02:33:13] [INFO] Handling general query: hi
+[2025-05-15 02:34:28] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 02:34:28] [INFO] Handling general query: hi
+[2025-05-15 02:35:38] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 02:35:38] [INFO] Handling general query: hi
+[2025-05-15 02:37:25] [INFO] Classified question: 'hello' as GENERAL
+[2025-05-15 02:37:25] [INFO] Handling general query: hello
+[2025-05-15 02:38:53] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 02:38:53] [INFO] Handling general query: hi
+[2025-05-15 02:40:02] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 02:40:02] [INFO] Handling general query: hi
+[2025-05-15 02:40:44] [INFO] Classified question: 'What are the early signs of gum disease?' as GENERAL
+[2025-05-15 02:40:44] [INFO] Handling general query: What are the early signs of gum disease?
+[2025-05-15 02:43:10] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 02:43:10] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 02:43:28] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 02:43:28] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 02:44:48] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 02:44:48] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 02:45:55] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 02:45:55] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 02:46:54] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 02:46:54] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 02:53:43] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 02:53:43] [INFO] Handling general query: hi
+[2025-05-15 02:59:05] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 02:59:05] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:00:33] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:00:33] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:01:49] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 03:01:49] [INFO] Handling general query: hi
+[2025-05-15 03:02:16] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:02:16] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:03:16] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:03:16] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:05:50] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:05:50] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:06:55] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:06:55] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:07:05] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:07:05] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:09:11] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:09:11] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:10:59] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:10:59] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:11:27] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:11:27] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:12:41] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:12:41] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:13:39] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:13:39] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:17:00] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:17:00] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:19:10] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:19:10] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:20:42] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:20:42] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:23:03] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:23:03] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:24:19] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:24:19] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:26:30] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:26:30] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:28:22] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:28:22] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:30:22] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:30:22] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:32:13] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:32:13] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:54:01] [INFO] Classified question: 'What are the early signs of gum disease' as GENERAL
+[2025-05-15 03:54:01] [INFO] Handling general query: What are the early signs of gum disease
+[2025-05-15 03:55:49] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 03:55:49] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 03:56:16] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 03:56:16] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 03:56:47] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 03:56:47] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 03:58:03] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 03:58:03] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 03:58:50] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 03:58:50] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 04:01:05] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 04:01:05] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 04:03:14] [INFO] Classified question: 'Periodontal_disease' as DATABASE
+[2025-05-15 04:03:14] [INFO] Handling database query: Periodontal_disease
+[2025-05-15 04:03:27] [ERROR] Error processing question: generate_sql() takes 3 positional arguments but 4 were given
+[2025-05-15 04:04:29] [INFO] Classified question: 'Periodontal_disease general question' as GENERAL
+[2025-05-15 04:04:29] [INFO] Handling general query: Periodontal_disease general question
+[2025-05-15 04:05:31] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 04:05:31] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 04:06:05] [INFO] Classified question: 'signs of gum disease' as GENERAL
+[2025-05-15 04:06:05] [INFO] Handling general query: signs of gum disease
+[2025-05-15 04:07:52] [INFO] Classified question: 'gum_diseases' as DATABASE
+[2025-05-15 04:07:52] [INFO] Handling database query: gum_diseases
+[2025-05-15 04:07:57] [ERROR] Error processing question: generate_sql() takes 3 positional arguments but 4 were given
+[2025-05-15 04:09:11] [INFO] Classified question: 'gum_diseases' as <think>
+Okay, so I need to figure out whether the user's query "gum_dise
+[2025-05-15 04:09:11] [INFO] Handling general query: gum_diseases
+[2025-05-15 04:10:40] [INFO] Classified question: 'tooth diseases' as GENERAL
+[2025-05-15 04:10:40] [INFO] Handling general query: tooth diseases
+[2025-05-15 04:14:42] [INFO] Classified question: 'tooth diseases' as GENERAL
+[2025-05-15 04:14:42] [INFO] Handling general query: tooth diseases
+[2025-05-15 04:15:09] [INFO] Classified question: 'tooth' as GENERAL
+[2025-05-15 04:15:09] [INFO] Handling general query: tooth
+[2025-05-15 04:19:33] [INFO] Classified question: 'tooth diseases' as GENERAL
+[2025-05-15 04:19:33] [INFO] Handling general query: tooth diseases
+[2025-05-15 04:20:37] [INFO] Classified question: 'tooth' as GENERAL
+[2025-05-15 04:20:37] [INFO] Handling general query: tooth
+[2025-05-15 04:22:33] [INFO] Classified question: 'tooth diseases' as GENERAL
+[2025-05-15 04:22:33] [INFO] Handling general query: tooth diseases
+[2025-05-15 04:23:00] [INFO] Classified question: 'tooth' as GENERAL
+[2025-05-15 04:23:00] [INFO] Handling general query: tooth
+[2025-05-15 04:23:43] [INFO] Classified question: 'tooth' as GENERAL
+[2025-05-15 04:23:43] [INFO] Handling general query: tooth
+[2025-05-15 04:24:04] [INFO] Classified question: 'tooth' as GENERAL
+[2025-05-15 04:24:04] [INFO] Handling general query: tooth
+[2025-05-15 04:26:37] [INFO] Classified question: 'tooth' as GENERAL
+[2025-05-15 04:26:37] [INFO] Handling general query: tooth
+[2025-05-15 04:28:47] [INFO] Classified question: 'tooth' as GENERAL
+[2025-05-15 04:28:47] [INFO] Handling general query: tooth
+[2025-05-15 04:32:05] [INFO] Classified question: 'tooth' as GENERAL
+[2025-05-15 04:32:05] [INFO] Handling general query: tooth
+[2025-05-15 04:33:27] [INFO] Classified question: 'tooth diseases' as GENERAL
+[2025-05-15 04:33:27] [INFO] Handling general query: tooth diseases
+[2025-05-15 04:33:52] [INFO] Classified question: 'tooth' as GENERAL
+[2025-05-15 04:33:52] [INFO] Handling general query: tooth
+[2025-05-15 04:41:21] [INFO] Classified question: 'gimme the patients with the higher number of appointments' as DATABASE
+[2025-05-15 04:41:21] [INFO] Handling database query: gimme the patients with the higher number of appointments
+[2025-05-15 04:41:43] [INFO] Classified question: 'tooth' as GENERAL
+[2025-05-15 04:41:43] [INFO] Handling general query: tooth
+[2025-05-15 04:42:50] [INFO] Classified question: 'tooth' as GENERAL
+[2025-05-15 04:42:50] [INFO] Handling general query: tooth
+[2025-05-15 04:45:26] [INFO] Classified question: 'tooth' as GENERAL
+[2025-05-15 04:45:26] [INFO] Handling general query: tooth
+[2025-05-15 04:45:56] [INFO] Classified question: 'tooth' as GENERAL
+[2025-05-15 04:45:56] [INFO] Handling general query: tooth
+[2025-05-15 04:46:24] [INFO] Classified question: 'tooth' as GENERAL
+[2025-05-15 04:46:24] [INFO] Handling general query: tooth
+[2025-05-15 04:48:23] [INFO] Classified question: 'tooth' as GENERAL
+[2025-05-15 04:48:23] [INFO] Handling general query: tooth
+[2025-05-15 04:49:51] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 04:49:51] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 04:57:36] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 04:57:36] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 04:57:56] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 04:57:56] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 04:58:01] [ERROR] API error: name 'true' is not defined
+[2025-05-15 04:58:10] [ERROR] API error: name 'true' is not defined
+[2025-05-15 04:59:49] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 04:59:49] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 04:59:53] [ERROR] API error: name 'true' is not defined
+[2025-05-15 05:05:20] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:05:20] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:05:20] [ERROR] API error: name 'true' is not defined
+[2025-05-15 05:05:24] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:05:24] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:06:03] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:06:03] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:06:21] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:06:21] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:06:24] [ERROR] API error: name 'true' is not defined
+[2025-05-15 05:07:27] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:07:27] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:08:23] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:08:23] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:09:44] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:09:44] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:12:52] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:12:52] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:12:56] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:12:56] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:13:20] [ERROR] API error: name 'true' is not defined
+[2025-05-15 05:13:26] [ERROR] API error: name 'true' is not defined
+[2025-05-15 05:13:52] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:13:52] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:13:56] [ERROR] API error: name 'true' is not defined
+[2025-05-15 05:14:18] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:14:18] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:14:53] [ERROR] API error: name 'true' is not defined
+[2025-05-15 05:15:29] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:15:29] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:15:54] [ERROR] API error: name 'true' is not defined
+[2025-05-15 05:16:33] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:16:33] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:16:38] [ERROR] API error: name 'true' is not defined
+[2025-05-15 05:20:40] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:20:40] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:20:41] [ERROR] API error: name 'true' is not defined
+[2025-05-15 05:21:33] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:21:33] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:21:34] [ERROR] API error: name 'true' is not defined
+[2025-05-15 05:21:44] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:21:44] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:21:55] [ERROR] API error: name 'true' is not defined
+[2025-05-15 05:22:45] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:22:45] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:22:46] [ERROR] API error: name 'true' is not defined
+[2025-05-15 05:23:54] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:23:54] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:23:55] [ERROR] API error: name 'true' is not defined
+[2025-05-15 05:24:34] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:24:34] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:25:32] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:25:32] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:27:18] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:27:18] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:28:37] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:28:37] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:29:17] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:29:17] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:29:59] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:29:59] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:31:15] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:31:15] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:33:34] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:33:34] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:34:50] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:34:50] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:35:02] [ERROR] API error: name 'true' is not defined
+[2025-05-15 05:35:20] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:35:20] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:35:27] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:35:27] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:36:35] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:36:35] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:36:42] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:36:42] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:39:00] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:39:00] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:43:46] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:43:46] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:46:44] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:46:44] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:47:06] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:47:06] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 05:47:45] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
+[2025-05-15 05:47:45] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease

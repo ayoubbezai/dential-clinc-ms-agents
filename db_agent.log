@@ -368,3 +368,91 @@ SQL: SELECT DAYNAME(appointments.date) AS day\_of\_week, COUNT(*) AS number\_of\
 [2025-05-09 18:51:59] WARNING: Using default values for: DB_USER, DB_PASSWORD
 [2025-05-09 18:52:05] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
 [2025-05-09 18:54:02] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:05:43] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:06:21] ERROR: Error processing question: 1109 (42S02): Unknown table 'payments' in field list
+[2025-05-09 19:09:19] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:09:32] ERROR: Error processing question: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\_id = folders.id JOIN patients ON folders.patient\_id = patients.id JOIN use...' at line 1
+[2025-05-09 19:11:40] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:11:52] ERROR: Error processing question: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Given a user's name, find all payments associated with the patient who belong...' at line 1
+[2025-05-09 19:12:32] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:12:38] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:12:46] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:13:42] ERROR: Error processing question: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Given a user's ID, to list all payments associated with the patient of that u...' at line 1
+[2025-05-09 19:14:16] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:14:52] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:15:09] ERROR: Error processing question: No result set to fetch from
+[2025-05-09 19:16:44] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:17:59] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:18:12] ERROR: Error processing question: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\_name' at line 1
+[2025-05-09 19:18:32] ERROR: Error processing question: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\_name' at line 1
+[2025-05-09 19:19:24] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:19:36] ERROR: Error processing question: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\_name' at line 1
+[2025-05-09 19:20:43] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:20:59] ERROR: Error processing question: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\_name' at line 1
+[2025-05-09 19:21:20] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:21:33] ERROR: Error processing question: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\_name FROM payments JOIN folders ON payments.folder\_id = folders.id JOIN pa...' at line 1
+[2025-05-09 19:22:38] ERROR: Error processing question: No result set to fetch from
+[2025-05-09 19:23:28] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:23:33] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:23:36] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:23:38] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:23:39] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:23:42] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:23:49] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:23:50] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:23:54] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:24:24] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:24:27] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:24:56] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:25:10] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:25:27] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:25:29] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:25:37] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:27:11] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:27:22] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:27:26] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:29:03] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:29:09] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:29:13] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:29:26] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:32:33] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:32:38] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:32:40] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:32:44] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:34:13] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:34:15] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:34:17] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:34:20] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:34:21] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:34:24] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:34:35] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:34:39] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:34:50] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:34:52] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:36:12] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:37:39] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:37:46] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:39:51] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:39:58] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:41:01] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:41:03] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:41:05] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:41:06] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:41:08] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:41:09] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:41:10] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:41:12] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:41:13] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:41:14] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:41:15] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:41:17] ERROR: Error processing question: 402 Client Error: Payment Required for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:41:55] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:42:04] ERROR: Error processing question: 400 Client Error: Bad Request for url: https://api.together.xyz/v1/chat/completions
+[2025-05-09 19:43:30] ERROR: Error processing question: 1054 (42S22): Unknown column 'payments.date' in 'field list'
+[2025-05-09 19:44:30] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:44:45] ERROR: Error processing question: 1109 (42S02): Unknown table 'payments' in field list
+[2025-05-09 19:45:27] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:45:41] ERROR: Error processing question: 1054 (42S22): Unknown column 'payments.date' in 'field list'
+[2025-05-09 19:46:15] WARNING: Using default values for: DB_USER, DB_PASSWORD
+[2025-05-09 19:49:20] ERROR: Error processing question: 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\_name, folders.price, folders.status FROM patients INNER JOIN folders ON pat...' at line 1
+[2025-05-09 19:50:18] ERROR: Error processing question: 503 Server Error: Service Unavailable for url: https://api.together.xyz/v1/chat/completions

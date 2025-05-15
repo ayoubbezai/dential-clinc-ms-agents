@@ -17,6 +17,7 @@ from agents.database_question_processing_agent.generate_answer_from_db_results i
 from agents.database_question_processing_agent.get_sql_agent import generate_sql as get_llm_sql
 from agents.database_question_processing_agent.question_agent import classify_and_handle_question as typeOfQuestion
 from agents.database_question_processing_agent.question_improvement_agent import get_focused_schema
+from agents.general_question_answering_agent.merge_data_agent import merge_scraped_data
 def main():
     connection = None  # Ensure that connection is initialized
 
@@ -46,8 +47,14 @@ def main():
                 question_type = typeOfQuestion(question)
                 print(f"Question type: {question_type}")
 
+
                 if question_type != "DATABASE":
-                    # Handle general (non-database) questions
+                    result = merge_scraped_data(question)
+                    if result:
+                        print(f"scraped answer: {result['duckduckgo_answer']}")
+                        print(f"scraped answer: {result['wikipedia_answer']}")
+        
+
                     response = llmForGeneralQuestions(question, GEMINI_API_KEY)
                     print(f"Gemini answer: {response}")
                     continue

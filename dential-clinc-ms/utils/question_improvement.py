@@ -19,7 +19,7 @@ def get_focused_schema(user_question, full_schema, api_url, api_key):
     ]
 
     payload = {
-        "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",  # Adjust model if necessary
+        "model": "deepseek-ai/DeepSeek-R1-Distill-Llama-70B-free",  
         "messages": messages,
         "temperature": 0,
         "max_tokens": 512,

@@ -12,6 +12,9 @@ from agents.database_question_processing_agent.generate_answer_from_db_results i
 from agents.database_question_processing_agent.get_sql_agent import generate_sql as get_llm_sql
 from agents.database_question_processing_agent.question_agent import classify_and_handle_question as typeOfQuestion
 from agents.database_question_processing_agent.question_improvement_agent import get_focused_schema
+from agents.general_question_answering_agent.merge_data_agent import merge_scraped_data
+from agents.general_question_answering_agent.generate_wikipedia_query_agent import generate_wikipedia_query
+
 
 app = FastAPI()
 schema = load_schema()
@@ -20,6 +23,7 @@ connection = get_db_connection(db_config)
 
 class QuestionInput(BaseModel):
     question: str
+    deepSearch: bool = False
 
 @app.post("/ask")
 def ask_question(payload: QuestionInput):
@@ -30,13 +34,19 @@ def ask_question(payload: QuestionInput):
     try:
         question_type = typeOfQuestion(question)
         if question_type != "DATABASE":
-            response = llmForGeneralQuestions(question, GEMINI_API_KEY)
-            return {"type": "general", "answer": response}
+            if payload.deepSearch:
+                wikipedia_term = generate_wikipedia_query(question, GEMINI_API_KEY)
+                result = merge_scraped_data(wikipedia_term,GEMINI_API_KEY)
+                return {"type": "general", "answer": result["answer"]}
 
+            else:
+                response = llmForGeneralQuestions(question, GEMINI_API_KEY)
+                return {"type": "general", "answer": response}
+
+
+        # DATABASE path
         improved_question = get_focused_schema(question, schema, TOGETHER_API_URL, TOGETHER_API_KEY)
-        sql = get_llm_sql(improved_question, schema,GEMINI_API_KEY)
-
-
+        sql = get_llm_sql(improved_question, schema, GEMINI_API_KEY)
 
         if not sql.startswith("SQL:"):
             raise HTTPException(status_code=400, detail="Failed to generate valid SQL")
@@ -47,7 +57,7 @@ def ask_question(payload: QuestionInput):
         if not results:
             return {"type": "database", "sql": clean_sql, "results": [], "answer": "No matching data found."}
 
-        answer = generate_answer_from_db_results(clean_sql,question, results, TOGETHER_API_URL, TOGETHER_API_KEY)
+        answer = generate_answer_from_db_results(clean_sql, question, results, TOGETHER_API_URL, TOGETHER_API_KEY)
         return {"type": "database", "sql": clean_sql, "results": results, "answer": answer}
 
     except Exception as e:
