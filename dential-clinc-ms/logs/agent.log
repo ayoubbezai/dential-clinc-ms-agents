@@ -630,3 +630,10 @@ Okay, so I need to figure out whether the user's query "gum_dise
 [2025-05-22 11:15:31] [INFO] Handling database query: gimme the first patient infomation with id 1
 [2025-05-22 11:23:16] [INFO] Classified question: 'gimme the first patient infomation with id 1' as DATABASE
 [2025-05-22 11:23:16] [INFO] Handling database query: gimme the first patient infomation with id 1
+[2025-05-22 11:30:25] [INFO] Classified question: 'gimme the first patient infomation with id 1' as DATABASE
+[2025-05-22 11:30:25] [INFO] Handling database query: gimme the first patient infomation with id 1
+[2025-05-22 11:33:37] [INFO] Classified question: 'gimme the first patient infomation with id 1' as DATABASE
+[2025-05-22 11:33:37] [INFO] Handling database query: gimme the first patient infomation with id 1
+[2025-05-22 11:33:41] [ERROR] API error: generate_answer_from_db_results() missing 2 required positional arguments: 'GEMINI_API_KEY' and 'memory_store'
+[2025-05-22 11:37:32] [INFO] Classified question: 'gimme the first patient infomation with id 1' as DATABASE
+[2025-05-22 11:37:32] [INFO] Handling database query: gimme the first patient infomation with id 1

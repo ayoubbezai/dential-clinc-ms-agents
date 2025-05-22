@@ -23,3 +23,17 @@ def mask_db_results_values(db_results):
         return "No results"
     
     return [{key: "<MASK>" for key in row} for row in db_results]
+
+def replace_placeholders(answer, db_results):
+    """
+    Replaces LLM-safe placeholders in the answer with actual DB values.
+    """
+    if not db_results or not isinstance(db_results, list):
+        return answer
+
+    row = db_results[0]
+    for key, value in row.items():
+        placeholder = f"[value of {key} from the database results]"
+        answer = answer.replace(placeholder, str(value))
+
+    return answer

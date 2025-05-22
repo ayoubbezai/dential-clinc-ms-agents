@@ -1,6 +1,6 @@
 import google.generativeai as genai
 from prompts.answer_generation_prompt import ANSWER_GENERATION_SYSTEM_PROMPT
-from utils.masking import mask_db_results_keys_only, mask_db_results_values
+from utils.masking import mask_db_results_keys_only, mask_db_results_values,replace_placeholders
 
 
 def generate_answer_from_db_results(clean_sql, user_question, db_results, GEMINI_API_KEY, mask_mode="keys"):
@@ -50,16 +50,4 @@ def generate_answer_from_db_results(clean_sql, user_question, db_results, GEMINI
         return "An error occurred while fetching the answer."
 
 
-def replace_placeholders(answer, db_results):
-    """
-    Replaces LLM-safe placeholders in the answer with actual DB values.
-    """
-    if not db_results or not isinstance(db_results, list):
-        return answer
 
-    row = db_results[0]
-    for key, value in row.items():
-        placeholder = f"[value of {key} from the database results]"
-        answer = answer.replace(placeholder, str(value))
-
-    return answer
