@@ -1,58 +1,65 @@
-# agents/generate_answer_from_db_results.py
+import google.generativeai as genai
+from prompts.answer_generation_prompt import ANSWER_GENERATION_SYSTEM_PROMPT
+from utils.masking import mask_db_results_keys_only, mask_db_results_values
 
-import requests
-from prompts.answer_generation_prompt import ANSWER_GENERATION_SYSTEM_PROMPT  
 
-def generate_answer_from_db_results(clean_sql,user_question, db_results, api_url, api_key):
+def generate_answer_from_db_results(clean_sql, user_question, db_results, GEMINI_API_KEY, mask_mode="keys"):
     """
-    Given the user's question and the database results, generate a clear, concise answer using the LLM.
-
-    :param user_question: The original question from the user (str)
-    :param db_results: The results from the executed SQL query (could be a list or dict)
-    :param api_url: The API endpoint URL for the LLM (str)
-    :param api_key: The API key to authenticate the request (str)
-    :return: The generated answer based on the user question and the database results (str)
+    Uses Gemini to generate an answer, masking DB results to protect sensitive data.
+    Replaces masked placeholders with actual values after generation.
     """
 
-    # Format the user prompt with the actual user question and database results
-    user_prompt = (
-        f"this the sql generated :{clean_sql}"
+    # Generate placeholder-masked version
+    placeholder_masked_result = {}
+    if db_results and isinstance(db_results, list):
+        row = db_results[0]
+        placeholder_masked_result = {
+            key: f"[value of {key} from the database results]" for key in row
+        }
+
+    # Select masking strategy for prompt (structure only, or keys only)
+    if mask_mode == "keys":
+        masked_db_results = mask_db_results_keys_only(db_results)
+    elif mask_mode == "values":
+        masked_db_results = placeholder_masked_result  # Inject placeholders
+    else:
+        raise ValueError("Invalid mask_mode. Choose 'keys' or 'values'.")
+
+    # Compose prompt
+    print("what is send to llm",masked_db_results)
+    full_prompt = (
+        f"{ANSWER_GENERATION_SYSTEM_PROMPT}\n\n"
+        f"This is the SQL generated: {clean_sql}\n"
         f"User question: {user_question}\n"
-        f"Database results: {db_results}"
+        f"Database results (masked): {masked_db_results}"
     )
 
-    # Combine system prompt and user prompt in the messages list for the LLM
-    messages = [
-        {"role": "system", "content": ANSWER_GENERATION_SYSTEM_PROMPT},  # Use the imported system prompt
-        {"role": "user", "content": user_prompt}
-    ]
-
-    # Prepare the payload for the API request
-    payload = {
-        "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",  # Use the appropriate model as per your requirement
-        "messages": messages,
-        "temperature": 0,  # Ensures more deterministic output
-        "max_tokens": 512,  # You can adjust max tokens to suit the expected answer length
-    }
-
-    # Set the headers for the request (using API key for authentication)
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json"
-    }
-
     try:
-        # Send the request to the LLM API
-        response = requests.post(api_url, headers=headers, json=payload, timeout=20)
-        
-        # Ensure the request was successful
-        response.raise_for_status()
-        
-        # Extract the answer from the response
-        answer = response.json()['choices'][0]['message']['content'].strip()
-        
-        return answer
-    except requests.exceptions.RequestException as e:
-        # Handle request errors (e.g., network issues, invalid API keys)
-        print(f"Error with the LLM API request: {str(e)}")
+        # Call Gemini
+        genai.configure(api_key=GEMINI_API_KEY)
+        model = genai.GenerativeModel("models/gemini-1.5-flash")
+        response = model.generate_content(full_prompt)
+        raw_answer = response.text.strip()
+
+        # Replace placeholders with real values
+        final_answer = replace_placeholders(raw_answer, db_results)
+        return final_answer
+
+    except Exception as e:
+        print(f"Error with the Gemini API: {str(e)}")
         return "An error occurred while fetching the answer."
+
+
+def replace_placeholders(answer, db_results):
+    """
+    Replaces LLM-safe placeholders in the answer with actual DB values.
+    """
+    if not db_results or not isinstance(db_results, list):
+        return answer
+
+    row = db_results[0]
+    for key, value in row.items():
+        placeholder = f"[value of {key} from the database results]"
+        answer = answer.replace(placeholder, str(value))
+
+    return answer

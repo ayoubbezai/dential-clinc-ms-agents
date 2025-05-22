@@ -33,6 +33,7 @@ def ask_question(payload: QuestionInput):
 
     try:
         question_type = typeOfQuestion(question)
+        print(question_type)
         if question_type != "DATABASE":
             if payload.deepSearch:
                 wikipedia_term = generate_wikipedia_query(question, GEMINI_API_KEY)
@@ -45,7 +46,7 @@ def ask_question(payload: QuestionInput):
 
 
         # DATABASE path
-        improved_question = get_focused_schema(question, schema, TOGETHER_API_URL, TOGETHER_API_KEY)
+        improved_question = get_focused_schema(question, schema,GEMINI_API_KEY )
         sql = get_llm_sql(improved_question, schema, GEMINI_API_KEY)
 
         if not sql.startswith("SQL:"):
@@ -57,7 +58,7 @@ def ask_question(payload: QuestionInput):
         if not results:
             return {"type": "database", "sql": clean_sql, "results": [], "answer": "No matching data found."}
 
-        answer = generate_answer_from_db_results(clean_sql, question, results, TOGETHER_API_URL, TOGETHER_API_KEY)
+        answer = generate_answer_from_db_results(clean_sql, question, results, GEMINI_API_KEY)
         return {"type": "database", "sql": clean_sql, "results": results, "answer": answer}
 
     except Exception as e:

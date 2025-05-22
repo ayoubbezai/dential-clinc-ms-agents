@@ -527,3 +527,106 @@ Okay, so I need to figure out whether the user's query "gum_dise
 [2025-05-15 05:47:06] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
 [2025-05-15 05:47:45] [INFO] Classified question: 'What_are_the_early_signs_of_gum_disease' as GENERAL
 [2025-05-15 05:47:45] [INFO] Handling general query: What_are_the_early_signs_of_gum_disease
+[2025-05-15 12:15:07] [INFO] Classified question: 'who is the oldest of them type is data base' as DATABASE
+[2025-05-15 12:15:07] [INFO] Handling database query: who is the oldest of them type is data base
+[2025-05-15 21:58:54] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-15 21:58:54] [INFO] Handling general query: hi
+[2025-05-15 21:59:06] [INFO] Classified question: 'hello' as GENERAL
+[2025-05-15 21:59:06] [INFO] Handling general query: hello
+[2025-05-15 21:59:17] [INFO] Classified question: 'gimme number of patients' as DATABASE
+[2025-05-15 21:59:17] [INFO] Handling database query: gimme number of patients
+[2025-05-15 22:00:00] [INFO] Classified question: 'gimme who paid the most of them' as GENERAL
+[2025-05-15 22:00:00] [INFO] Handling general query: gimme who paid the most of them
+[2025-05-16 14:59:49] [INFO] Classified question: 'what is the last Dr. Ottilie Kunde I amout that paied' as DATABASE
+[2025-05-16 14:59:49] [INFO] Handling database query: what is the last Dr. Ottilie Kunde I amout that paied
+[2025-05-16 15:00:14] [INFO] Classified question: 'gimme patient numbers' as DATABASE
+[2025-05-16 15:00:14] [INFO] Handling database query: gimme patient numbers
+[2025-05-16 15:00:27] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-16 15:00:27] [INFO] Handling general query: hi
+[2025-05-16 15:00:43] [INFO] Classified question: 'gimme patients count' as DATABASE
+[2025-05-16 15:00:43] [INFO] Handling database query: gimme patients count
+[2025-05-16 17:26:31] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-16 17:26:31] [INFO] Handling general query: hi
+[2025-05-16 17:28:19] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-16 17:28:19] [INFO] Handling general query: hi
+[2025-05-16 17:29:32] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-16 17:29:32] [INFO] Handling general query: hi
+[2025-05-22 10:13:39] [INFO] Classified question: 'who is the oldest of them type is data base' as GENERAL
+[2025-05-22 10:13:39] [INFO] Handling general query: who is the oldest of them type is data base
+[2025-05-22 10:14:11] [INFO] Classified question: 'who is the oldest of them type is data base its db question' as GENERAL
+[2025-05-22 10:14:11] [INFO] Handling general query: who is the oldest of them type is data base its db question
+[2025-05-22 10:15:31] [INFO] Classified question: 'who is the oldest patient of them type is data base its db question' as GENERAL
+[2025-05-22 10:15:31] [INFO] Handling general query: who is the oldest patient of them type is data base its db question
+[2025-05-22 10:16:13] [INFO] Classified question: 'gomme total number of patients' as GENERAL
+[2025-05-22 10:16:13] [INFO] Handling general query: gomme total number of patients
+[2025-05-22 10:16:27] [INFO] Classified question: 'gomme total number of patients' as GENERAL
+[2025-05-22 10:16:27] [INFO] Handling general query: gomme total number of patients
+[2025-05-22 10:16:43] [INFO] Classified question: 'gimme total number of patients' as GENERAL
+[2025-05-22 10:16:43] [INFO] Handling general query: gimme total number of patients
+[2025-05-22 10:19:26] [INFO] Classified question: 'gimme total number of patients' as GENERAL
+[2025-05-22 10:19:26] [INFO] Handling general query: gimme total number of patients
+[2025-05-22 10:20:27] [INFO] Classified question: 'gimme total number of patients' as GENERAL
+[2025-05-22 10:20:27] [INFO] Handling general query: gimme total number of patients
+[2025-05-22 10:21:21] [INFO] Classified question: 'gimme total number of patients' as GENERAL
+[2025-05-22 10:21:21] [INFO] Handling general query: gimme total number of patients
+[2025-05-22 10:22:15] [INFO] Classified question: 'gimme total number of patients' as GENERAL
+[2025-05-22 10:22:15] [INFO] Handling general query: gimme total number of patients
+[2025-05-22 10:24:48] [INFO] Classified question: 'gimme total number of patients' as GENERAL
+[2025-05-22 10:24:48] [INFO] Handling general query: gimme total number of patients
+[2025-05-22 10:25:10] [INFO] Classified question: 'gimme total number of patients' as GENERAL
+[2025-05-22 10:25:10] [INFO] Handling general query: gimme total number of patients
+[2025-05-22 10:25:57] [INFO] Classified question: 'gimme total number of patients' as GENERAL
+[2025-05-22 10:25:57] [INFO] Handling general query: gimme total number of patients
+[2025-05-22 10:27:15] [INFO] Classified question: 'gimme total number of patients' as GENERAL
+[2025-05-22 10:27:15] [INFO] Handling general query: gimme total number of patients
+[2025-05-22 10:27:48] [INFO] Classified question: 'gomme total number of patients' as GENERAL
+[2025-05-22 10:27:48] [INFO] Handling general query: gomme total number of patients
+[2025-05-22 10:28:59] [INFO] Classified question: 'gomme total number of patients' as GENERAL
+[2025-05-22 10:28:59] [INFO] Handling general query: gomme total number of patients
+[2025-05-22 10:31:48] [ERROR] API error: typeOfQuestion() takes 3 positional arguments but 4 were given
+[2025-05-22 10:33:14] [INFO] Classified question: 'gomme total number of patients' as DATABASE
+[2025-05-22 10:33:14] [INFO] Handling database query: gomme total number of patients
+[2025-05-22 10:35:47] [INFO] Classified question: 'gomme total number of patients' as DATABASE
+[2025-05-22 10:35:47] [INFO] Handling database query: gomme total number of patients
+[2025-05-22 10:38:10] [INFO] Classified question: 'gomme total number of patients' as DATABASE
+[2025-05-22 10:38:10] [INFO] Handling database query: gomme total number of patients
+[2025-05-22 10:46:55] [INFO] Classified question: 'gomme total number of patients' as DATABASE
+[2025-05-22 10:46:55] [INFO] Handling database query: gomme total number of patients
+[2025-05-22 10:50:34] [INFO] Classified question: 'gomme total number of patients' as DATABASE
+[2025-05-22 10:50:34] [INFO] Handling database query: gomme total number of patients
+[2025-05-22 10:52:54] [INFO] Classified question: 'gomme total number of patients' as DATABASE
+[2025-05-22 10:52:54] [INFO] Handling database query: gomme total number of patients
+[2025-05-22 10:53:46] [INFO] Classified question: 'gomme total number of patients' as DATABASE
+[2025-05-22 10:53:46] [INFO] Handling database query: gomme total number of patients
+[2025-05-22 10:54:24] [INFO] Classified question: 'gimme the first patient informations' as DATABASE
+[2025-05-22 10:54:24] [INFO] Handling database query: gimme the first patient informations
+[2025-05-22 10:55:44] [INFO] Classified question: 'gimme the first patient informations' as DATABASE
+[2025-05-22 10:55:44] [INFO] Handling database query: gimme the first patient informations
+[2025-05-22 10:56:54] [INFO] Classified question: 'gimme the first patient informations' as DATABASE
+[2025-05-22 10:56:54] [INFO] Handling database query: gimme the first patient informations
+[2025-05-22 10:58:25] [INFO] Classified question: 'gimme the first patient informations' as DATABASE
+[2025-05-22 10:58:25] [INFO] Handling database query: gimme the first patient informations
+[2025-05-22 10:59:33] [INFO] Classified question: 'gimme the first patient informations' as DATABASE
+[2025-05-22 10:59:33] [INFO] Handling database query: gimme the first patient informations
+[2025-05-22 11:01:56] [INFO] Classified question: 'gimme the first patient informations' as DATABASE
+[2025-05-22 11:01:56] [INFO] Handling database query: gimme the first patient informations
+[2025-05-22 11:02:30] [INFO] Classified question: 'gimme the first patient informations' as DATABASE
+[2025-05-22 11:02:30] [INFO] Handling database query: gimme the first patient informations
+[2025-05-22 11:04:05] [INFO] Classified question: 'who is the patient wiht highest payment amount' as DATABASE
+[2025-05-22 11:04:05] [INFO] Handling database query: who is the patient wiht highest payment amount
+[2025-05-22 11:04:55] [INFO] Classified question: 'gimme the first patient infomation' as DATABASE
+[2025-05-22 11:04:55] [INFO] Handling database query: gimme the first patient infomation
+[2025-05-22 11:05:34] [INFO] Classified question: 'gimme the first patient infomation' as DATABASE
+[2025-05-22 11:05:34] [INFO] Handling database query: gimme the first patient infomation
+[2025-05-22 11:05:45] [INFO] Classified question: 'gimme the first patient infomation with id 1' as DATABASE
+[2025-05-22 11:05:45] [INFO] Handling database query: gimme the first patient infomation with id 1
+[2025-05-22 11:07:25] [INFO] Classified question: 'gimme the first patient infomation with id 1' as DATABASE
+[2025-05-22 11:07:25] [INFO] Handling database query: gimme the first patient infomation with id 1
+[2025-05-22 11:09:06] [INFO] Classified question: 'gimme the first patient infomation with id 1' as DATABASE
+[2025-05-22 11:09:06] [INFO] Handling database query: gimme the first patient infomation with id 1
+[2025-05-22 11:12:26] [INFO] Classified question: 'gimme the first patient infomation with id 1' as DATABASE
+[2025-05-22 11:12:26] [INFO] Handling database query: gimme the first patient infomation with id 1
+[2025-05-22 11:15:31] [INFO] Classified question: 'gimme the first patient infomation with id 1' as DATABASE
+[2025-05-22 11:15:31] [INFO] Handling database query: gimme the first patient infomation with id 1
+[2025-05-22 11:23:16] [INFO] Classified question: 'gimme the first patient infomation with id 1' as DATABASE
+[2025-05-22 11:23:16] [INFO] Handling database query: gimme the first patient infomation with id 1

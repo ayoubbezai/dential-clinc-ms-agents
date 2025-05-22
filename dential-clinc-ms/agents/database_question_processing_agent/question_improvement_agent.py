@@ -1,47 +1,34 @@
-import requests
+# agents/improvement_agent.py
+
+import google.generativeai as genai
 from prompts.improvement_prompts import IMPROVEMENT_SYSTEM_PROMPT
 
-def get_focused_schema(user_question, full_schema, api_url, api_key):
+def get_focused_schema(user_question, full_schema, GEMINI_API_KEY):
     """
-    This agent analyzes the schema and the user question, improving the question for the SQL generator agent.
-    It also tries to determine which table(s) and column(s) contain the information needed.
+    Uses Gemini to analyze the user question and schema, improving the question and identifying relevant tables/columns.
     """
-    # Prepare the prompt
-    user_prompt = (
+
+    # Combine prompt and schema
+    full_prompt = (
+        f"{IMPROVEMENT_SYSTEM_PROMPT}\n\n"
         f"User question: {user_question}\n"
         f"Full schema:\n{full_schema}"
     )
 
-    # Prepare the messages with the system prompt for improving the question
-    messages = [
-        {"role": "system", "content": IMPROVEMENT_SYSTEM_PROMPT},
-        {"role": "user", "content": user_prompt}
-    ]
-
-    # Create the payload for the API request
-    payload = {
-        "model": "mistralai/Mixtral-8x7B-Instruct-v0.1",  # Adjust model if necessary
-        "messages": messages,
-        "temperature": 0,
-        "max_tokens": 512,
-    }
-
-    # Set up the headers for the API request
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json"
-    }
-
-    # Make the API request and handle the response
     try:
-        response = requests.post(api_url, headers=headers, json=payload, timeout=20)
-        response.raise_for_status()  # Ensure the request was successful
+        # Configure Gemini with API key
+        genai.configure(api_key=GEMINI_API_KEY)
 
-        # Extract and return the focused schema or improved question from the response
-        focused_schema = response.json()['choices'][0]['message']['content'].strip()
+        # Initialize the model
+        model = genai.GenerativeModel("models/gemini-1.5-flash")
+
+        # Generate the response
+        response = model.generate_content(full_prompt)
+
+        # Return cleaned-up output
+        focused_schema = response.text.strip()
         return focused_schema
 
-    except requests.exceptions.RequestException as e:
-        # Handle exceptions (network, invalid response, etc.)
+    except Exception as e:
         print(f"Error occurred: {str(e)}")
         return "No relevant schema found or unable to process the request."

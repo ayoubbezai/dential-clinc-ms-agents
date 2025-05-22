@@ -75,7 +75,7 @@ CREATE TABLE `patients` (
   `user_id` BIGINT,
   `patient_name` VARCHAR(255) NOT NULL,
   `phone` VARCHAR(20) NOT NULL,
-  `note` TEXT NOT NULL,
+  `notes` TEXT,
   `diseases` TEXT NOT NULL,
   `gender` ENUM ('Male', 'Female') NOT NULL,
   `created_at` TIMESTAMP NOT NULL DEFAULT (CURRENT_TIMESTAMP),

@@ -1,6 +1,6 @@
 from utils.question_classifier import typeOfQuestion
 from utils.logger import log_message
-from config import TOGETHER_API_KEY,TOGETHER_API_URL, SCHEMA_PATH
+from config import  SCHEMA_PATH,GEMINI_API_KEY
 
 def classify_and_handle_question(user_question):
     """
@@ -11,7 +11,7 @@ def classify_and_handle_question(user_question):
         full_schema = schema_file.read()
 
     # Step 1: Classify the question
-    question_type = typeOfQuestion(user_question, full_schema, TOGETHER_API_URL,TOGETHER_API_KEY)
+    question_type = typeOfQuestion(user_question, full_schema,GEMINI_API_KEY)
 
     # Step 2: Log the classification result
     log_message(f"Classified question: '{user_question}' as {question_type}")

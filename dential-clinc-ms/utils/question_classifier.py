@@ -1,38 +1,31 @@
-import requests
+# agents/classifier_agent.py
+
+import google.generativeai as genai
 from prompts.classifier_prompts import SYSTEM_PROMPT, get_classifier_prompt
 
-def typeOfQuestion(user_question, full_schema, api_url, api_key):
+def typeOfQuestion(user_question, full_schema, GEMINI_API_KEY):
     """
-    Classifies the user question as DATABASE or GENERAL based on its content and schema.
+    Classifies the user question as DATABASE or GENERAL using Gemini.
     """
     user_prompt = get_classifier_prompt(user_question, full_schema)
 
-    messages = [
-        {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": user_prompt}
-    ]
-
-    payload = {
-        "model":"mistralai/Mixtral-8x7B-Instruct-v0.1",
-        "messages": messages,
-        "temperature": 0,
-        "max_tokens": 20,
-    }
-
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json"
-    }
+    # Prepare the full prompt for Gemini
+    full_prompt = f"{SYSTEM_PROMPT}\n\n{user_prompt}"
 
     try:
-        response = requests.post(api_url, headers=headers, json=payload, timeout=20)
-        response.raise_for_status()  # Ensure the request was successful
+        # Configure Gemini
+        genai.configure(api_key=GEMINI_API_KEY)
 
-        # Extract and return classification result
-        classification = response.json()['choices'][0]['message']['content'].strip()
+        # Initialize Gemini model
+        model = genai.GenerativeModel("models/gemini-1.5-flash")
+
+        # Generate response
+        response = model.generate_content(full_prompt)
+
+        # Extract and return classification
+        classification = response.text.strip()
         return classification
-    
-    except requests.exceptions.RequestException as e:
-        # Handle exceptions (network, invalid response, etc.)
+
+    except Exception as e:
         print(f"Error occurred: {str(e)}")
-        return "GENERAL"  # Default classification in case of an error
+        return "GENERAL"  # Default fallback classification
