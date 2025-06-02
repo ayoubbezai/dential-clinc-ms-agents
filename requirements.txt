@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+python-dotenv
+mysql-connector-python
+requests
+pycryptodome
+google-generativeai
