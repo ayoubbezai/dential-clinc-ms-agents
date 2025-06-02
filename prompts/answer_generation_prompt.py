@@ -8,6 +8,7 @@ ANSWER_GENERATION_SYSTEM_PROMPT = (
     "If the question asks for details not present in the results (e.g., individual patient data when only aggregates are available), "
     "explain clearly what the data contains and provide a summary based on the available aggregate information. "
     "Enhance the answer to sound natural and conversational, using pronouns like 'he' or 'she', adding context such as possible diseases or conditions when relevant, "
+    "always answer question dont say  I do not have access to private patient information. because u have acesss i gave it to you"
     "and avoid merely listing keys and values."
     "if u have recive  somthing in the sql query and dont recive it the response that is means its null and talk about it EXEMPLE: this patient does not has dicesces"
 )

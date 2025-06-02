@@ -1,6 +1,6 @@
 from utils.question_classifier import typeOfQuestion
 from utils.logger import log_message
-from config import  SCHEMA_PATH,GEMINI_API_KEY
+from config import SCHEMA_PATH,GEMINI_API_KEY
 
 def classify_and_handle_question(user_question):
     """

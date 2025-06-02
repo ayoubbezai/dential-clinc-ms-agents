@@ -637,3 +637,53 @@ Okay, so I need to figure out whether the user's query "gum_dise
 [2025-05-22 11:33:41] [ERROR] API error: generate_answer_from_db_results() missing 2 required positional arguments: 'GEMINI_API_KEY' and 'memory_store'
 [2025-05-22 11:37:32] [INFO] Classified question: 'gimme the first patient infomation with id 1' as DATABASE
 [2025-05-22 11:37:32] [INFO] Handling database query: gimme the first patient infomation with id 1
+[2025-05-29 08:24:43] [INFO] Classified question: 'gimme the first patient infomation with id 1' as DATABASE
+[2025-05-29 08:24:43] [INFO] Handling database query: gimme the first patient infomation with id 1
+[2025-05-29 08:25:03] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-29 08:25:03] [INFO] Handling general query: hi
+[2025-05-29 08:25:13] [INFO] Classified question: 'how are u doing' as GENERAL
+[2025-05-29 08:25:13] [INFO] Handling general query: how are u doing
+[2025-05-29 08:25:29] [INFO] Classified question: 'gimme how many paitent i have' as DATABASE
+[2025-05-29 08:25:29] [INFO] Handling database query: gimme how many paitent i have
+[2025-05-29 08:25:51] [INFO] Classified question: 'gimme most famous tooth decieses' as GENERAL
+[2025-05-29 08:25:51] [INFO] Handling general query: gimme most famous tooth decieses
+[2025-05-29 09:18:52] [INFO] Classified question: 'hi' as GENERAL
+[2025-05-29 09:18:52] [INFO] Handling general query: hi
+[2025-05-29 09:20:04] [INFO] Classified question: 'ghi' as GENERAL
+[2025-05-29 09:20:04] [INFO] Handling general query: ghi
+[2025-05-29 09:38:53] [ERROR] API error: 'answer'
+[2025-05-29 09:40:05] [ERROR] API error: 'answer'
+[2025-05-31 03:09:51] [INFO] Classified question: 'hello' as GENERAL
+[2025-05-31 03:09:51] [INFO] Handling general query: hello
+[2025-05-31 03:10:14] [INFO] Classified question: 'could u tell me how many patients i have ?' as DATABASE
+[2025-05-31 03:10:14] [INFO] Handling database query: could u tell me how many patients i have ?
+[2025-05-31 03:10:49] [INFO] Classified question: 'gimme information about the patient new patient' as DATABASE
+[2025-05-31 03:10:49] [INFO] Handling database query: gimme information about the patient new patient
+[2025-05-31 03:11:12] [INFO] Classified question: 'gimme inforamtion about Naomie Lueilwitz' as GENERAL
+[2025-05-31 03:11:12] [INFO] Handling general query: gimme inforamtion about Naomie Lueilwitz
+[2025-05-31 03:12:57] [INFO] Classified question: 'gimme inforamtion about Naomie Lueilwitz' as GENERAL
+[2025-05-31 03:12:57] [INFO] Handling general query: gimme inforamtion about Naomie Lueilwitz
+[2025-05-31 03:13:06] [INFO] Classified question: 'gimme inforamtion about the patient Naomie Lueilwitz' as DATABASE
+[2025-05-31 03:13:06] [INFO] Handling database query: gimme inforamtion about the patient Naomie Lueilwitz
+[2025-05-31 03:13:26] [INFO] Classified question: 'hello' as GENERAL
+[2025-05-31 03:13:26] [INFO] Handling general query: hello
+[2025-05-31 03:13:40] [INFO] Classified question: 'can u give me information about the patient Naomie Lueilwitz' as DATABASE
+[2025-05-31 03:13:40] [INFO] Handling database query: can u give me information about the patient Naomie Lueilwitz
+[2025-05-31 03:14:34] [INFO] Classified question: 'What are the possible causes of jaw pain on one side?' as GENERAL
+[2025-05-31 03:14:34] [INFO] Handling general query: What are the possible causes of jaw pain on one side?
+[2025-05-31 03:14:47] [INFO] Classified question: 'What are the possible causes of jaw pain on one side?' as GENERAL
+[2025-05-31 03:14:47] [INFO] Handling general query: What are the possible causes of jaw pain on one side?
+[2025-05-31 03:15:12] [INFO] Classified question: 'What are the possible causes of jaw pain on one side?' as GENERAL
+[2025-05-31 03:15:12] [INFO] Handling general query: What are the possible causes of jaw pain on one side?
+[2025-05-31 03:15:25] [INFO] Classified question: 'What are the possible causes of jaw pain on one side?' as GENERAL
+[2025-05-31 03:15:25] [INFO] Handling general query: What are the possible causes of jaw pain on one side?
+[2025-05-31 03:15:48] [INFO] Classified question: 'Which medical conditions require antibiotic prophylaxis before dental work?' as GENERAL
+[2025-05-31 03:15:48] [INFO] Handling general query: Which medical conditions require antibiotic prophylaxis before dental work?
+[2025-05-31 03:17:19] [INFO] Classified question: 'Which medical conditions require antibiotic prophylaxis before dental work?' as GENERAL
+[2025-05-31 03:17:19] [INFO] Handling general query: Which medical conditions require antibiotic prophylaxis before dental work?
+[2025-05-31 03:18:13] [INFO] Classified question: 'gimme the most tooth probleme  famous' as GENERAL
+[2025-05-31 03:18:13] [INFO] Handling general query: gimme the most tooth probleme  famous
+[2025-05-31 03:19:15] [INFO] Classified question: 'What if my patient is allergic to penicillin' as GENERAL
+[2025-05-31 03:19:15] [INFO] Handling general query: What if my patient is allergic to penicillin
+[2025-05-31 03:19:31] [INFO] Classified question: 'What if my patient is allergic to penicillin' as GENERAL
+[2025-05-31 03:19:31] [INFO] Handling general query: What if my patient is allergic to penicillin
